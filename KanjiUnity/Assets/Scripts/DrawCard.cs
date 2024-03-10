@@ -8,6 +8,9 @@ public class DrawCard : MonoBehaviour
 {
 	public GameObject Card1;
 	public GameObject Card2;
+	public GameObject Weather1;
+	public GameObject Clear1;
+	public GameObject Boost1;
 	public GameObject PlayerHand;
 	List<GameObject> cards = new List<GameObject>();
 
@@ -16,6 +19,9 @@ public class DrawCard : MonoBehaviour
 	{
 		cards.Add(Card1);
 		cards.Add(Card2);
+		cards.Add(Weather1);
+		cards.Add(Clear1);
+		cards.Add(Boost1);
 	}
 	public void Draw()
 	{

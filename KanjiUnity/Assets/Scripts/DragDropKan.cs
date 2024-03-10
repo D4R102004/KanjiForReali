@@ -1,9 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DragDropKan : MonoBehaviour 
 {
+	private Destruction pop;
+	public CardProperties cardatt;
 	public FieldProperties field;
 	private string zonetype;
 	private int maxsize;
@@ -21,6 +23,7 @@ public class DragDropKan : MonoBehaviour
 	}
     void Start() 
 	{
+		pop = gameObject.GetComponent<Destruction>();
 		zonetype = field.zonetype;
 		maxsize = field.maxsize;
 	}
@@ -57,7 +60,13 @@ public class DragDropKan : MonoBehaviour
 	public void EndDrag()
 	{
 		IsDragging = false;
-		if (isover && field.counter < maxsize)
+		if (isover && cardatt.faccion == "Clear" && field.counter != 0)
+		{
+			pop.DestroyWeather(Zone);
+			field.counter = 0;
+			Destroy(this.gameObject);
+		}
+		else if (isover && field.counter < maxsize && cardatt.faccion != "Clear")
 		{
 			transform.SetParent(Zone.transform);
 			field.counter++;
