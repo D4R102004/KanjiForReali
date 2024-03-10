@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DrawCard : MonoBehaviour 
 {
 	public GameObject Card1;
+	public GameObject Card2;
 	public GameObject PlayerHand;
 	List<GameObject> cards = new List<GameObject>();
 
@@ -14,6 +15,7 @@ public class DrawCard : MonoBehaviour
 	void Start () 
 	{
 		cards.Add(Card1);
+		cards.Add(Card2);
 	}
 	public void Draw()
 	{
