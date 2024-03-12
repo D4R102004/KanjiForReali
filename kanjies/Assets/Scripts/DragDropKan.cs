@@ -70,7 +70,6 @@ public class DragDropKan : MonoBehaviour
 		{
 			transform.SetParent(Zone.transform);
 			field.counter++;
-			
 		}
 		else
 		{

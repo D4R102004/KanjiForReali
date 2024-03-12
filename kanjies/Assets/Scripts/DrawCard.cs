@@ -20,6 +20,10 @@ public class DrawCard : MonoBehaviour
 		cards.Add(Weather1);
 		cards.Add(Clear1);
 		cards.Add(Boost1);
+		for (int i = 0; i < 10; i++)
+		{
+			Draw();
+		}
 	}
 	public void Draw()
 	{
