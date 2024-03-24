@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class InitiatePlayerHero : MonoBehaviour 
 {
+	private ResetAllBoard reset;
+	public GameMechanics Mechanics;
 	private GameObject HeroZone;
-	private GameObject Hero1;
+	public GameObject Hero1;
 	private void Awake()
 	{
+		reset = gameObject.GetComponent<ResetAllBoard>();
+		reset.ResetYourPower(Mechanics);
+		reset.ResetTheCounters();
 	    HeroZone = GameObject.Find("PlayerKanZone");
-		Hero1 = GameObject.Find("Hero1");
 	}
 	// Use this for initialization
 	void Start () 

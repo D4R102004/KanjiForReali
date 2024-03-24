@@ -49,14 +49,17 @@
      <Compile Include="Assets\Scripts\CardDisplay.cs" />
      <Compile Include="Assets\Scripts\CardProperties.cs" />
      <Compile Include="Assets\Scripts\Destruction.cs" />
+     <Compile Include="Assets\Scripts\DisplayPower.cs" />
      <Compile Include="Assets\Scripts\DragDropKan.cs" />
      <Compile Include="Assets\Scripts\DrawCard.cs" />
      <Compile Include="Assets\Scripts\Effects.cs" />
      <Compile Include="Assets\Scripts\FieldProperties.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\InitiatePlayerHero.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
      <Compile Include="Assets\Scripts\TurnSystem.cs" />
+     <Compile Include="Assets\Scripts\WeatherModifiers.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

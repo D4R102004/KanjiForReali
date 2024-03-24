@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DragDropKan : MonoBehaviour 
 {
+	public GameMechanics mech;
+	private GameManager gm;
 	private Destruction pop;
 	public CardProperties cardatt;
 	public FieldProperties field;
@@ -18,14 +20,17 @@ public class DragDropKan : MonoBehaviour
 
 	private void Awake()
 	{
-		Zone = GameObject.Find(zonetype);
+		
 		Canvas = GameObject.Find("Canvas");
+		pop = gameObject.GetComponent<Destruction>();
+		gm = gameObject.GetComponent<GameManager>();
+		zonetype = field.zonetype;
+		maxsize = field.maxsize;
+		Zone = GameObject.Find(zonetype);
 	}
     void Start() 
 	{
-		pop = gameObject.GetComponent<Destruction>();
-		zonetype = field.zonetype;
-		maxsize = field.maxsize;
+		
 	}
 	
 	// Update is called once per frame
@@ -60,16 +65,27 @@ public class DragDropKan : MonoBehaviour
 	public void EndDrag()
 	{
 		IsDragging = false;
-		if (isover && cardatt.faccion == "Clear" && field.counter != 0)
+		if (isover && cardatt.IsClear && field.counter != 0)
 		{
-			pop.DestroyWeather(Zone);
-			field.counter = 0;
+			gm.ConfirmWeather(Zone);
+			int i = pop.DestroyWeather(Zone, cardatt);
+			field.counter -= i;
+			gm.ReduceWeather(cardatt);
+			gm.WeatherTransform();
 			Destroy(this.gameObject);
 		}
-		else if (isover && field.counter < maxsize && cardatt.faccion != "Clear")
+		if (isover && cardatt.typetext == "Weather" && field.counter < maxsize)
 		{
 			transform.SetParent(Zone.transform);
 			field.counter++;
+			gm.WeatherClause(cardatt);
+		}
+		else if (isover && field.counter < maxsize && cardatt.faccion != "Clear" && cardatt.faccion != "Weather")
+		{
+			transform.SetParent(Zone.transform);
+			field.counter++;
+			if (cardatt.typetext != "Boost") gm.AttackGiver(cardatt);
+			else gm.BoostGiver(cardatt);
 		}
 		else
 		{

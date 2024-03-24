@@ -14,6 +14,7 @@ public class CardProperties : ScriptableObject
 	public int power;
 	public string effect;
 	public int CardID;
+	public bool IsClear = false;
 
 
 
