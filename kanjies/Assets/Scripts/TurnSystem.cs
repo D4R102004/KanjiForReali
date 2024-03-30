@@ -10,9 +10,6 @@ public class TurnSystem : MonoBehaviour
 	public int IsOpponentTurn;
 	public Text TurnText;
 	public GameMechanics logic;
-	public FieldProperties P1Melee;
-	public FieldProperties P1Range;
-	public FieldProperties P1Siege;
 	public GameManager gm;
 	public void Awake()
 	{
@@ -24,8 +21,7 @@ public class TurnSystem : MonoBehaviour
 	{
 		IsYourTurn = true;
 		YourTurn = 1;
-		IsOpponentTurn = 0;
-		
+		IsOpponentTurn = 1;
 	}
 	
 	// Update is called once per frame
@@ -44,10 +40,7 @@ public class TurnSystem : MonoBehaviour
 	{
 		IsYourTurn = false;
 		IsOpponentTurn += 1;
-		gm.PlayerEnd(logic, P1Melee, P1Range, P1Siege);
-		logic.BoostMelee = 0;
-		logic.BoostRange = 0;
-		logic.BoostSiege = 0;
+		gm.PlayerEnd();
 	} 
 	public void OpponentEndTurn()
 	{

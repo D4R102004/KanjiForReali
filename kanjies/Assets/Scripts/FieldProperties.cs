@@ -9,4 +9,5 @@ public class FieldProperties : ScriptableObject
 	public int maxsize;
 	public bool IsOverZone;
 	public int counter = 0;
+	public bool FieldOwner;
 }

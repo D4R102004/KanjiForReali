@@ -14,7 +14,7 @@ public class Destruction : MonoBehaviour {
 		
 	}
 	
-    public int DestroyWeather(GameObject parent, CardProperties cardatt)
+    public int DestroyWeather(GameObject parent, CardsAttributes cardatt)
 	{
 		int i = 0;
 	foreach(Transform child in parent.transform)

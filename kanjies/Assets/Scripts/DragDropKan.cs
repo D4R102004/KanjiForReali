@@ -7,26 +7,40 @@ public class DragDropKan : MonoBehaviour
 	public GameMechanics mech;
 	private GameManager gm;
 	private Destruction pop;
-	public CardProperties cardatt;
-	public FieldProperties field;
-	private string zonetype;
+	public CardsAttributes cardatt;
+	public FieldAttributes field;
 	private int maxsize;
 	public bool isover = false;
 	private bool IsDragging = false;
 	private GameObject StartParent;
 	private Vector2 StartPosition;
 	private GameObject Canvas;
-	private GameObject Zone;
+	public GameObject Zone;
 
 	private void Awake()
 	{
-		
+		cardatt = gameObject.GetComponent<CardsAttributes>();
 		Canvas = GameObject.Find("Canvas");
 		pop = gameObject.GetComponent<Destruction>();
 		gm = gameObject.GetComponent<GameManager>();
-		zonetype = field.zonetype;
+		
+		InitializeZone();
+	}
+	public void InitializeZone()
+	{
+		Zone = gm.ZoneManager(cardatt);
+		if (Zone == null)
+		{
+			Debug.LogError("Zone not found" + cardatt.field);
+			return;
+		}
+		field = Zone.GetComponent<FieldAttributes>();
+		if (field == null)
+		{
+			Debug.LogError("FieldAttributes not found on zone");
+			return;
+		}
 		maxsize = field.maxsize;
-		Zone = GameObject.Find(zonetype);
 	}
     void Start() 
 	{
@@ -45,7 +59,7 @@ public class DragDropKan : MonoBehaviour
 	private void OnCollisionExit2D(Collision2D other)
 	{
 		isover = false;
-		Zone = GameObject.Find(zonetype);
+		Zone = gm.ZoneManager(cardatt);
 	}
 	private void OnCollisionEnter2D(Collision2D other) 
 	{	
@@ -58,6 +72,8 @@ public class DragDropKan : MonoBehaviour
 	}
 	public void StartDrag()
 	{
+		Zone = gm.ZoneManager(cardatt);
+		field = Zone.GetComponent<FieldAttributes>();
 		StartParent = transform.parent.gameObject;
 		StartPosition = transform.position;
 		IsDragging = true;
@@ -65,6 +81,8 @@ public class DragDropKan : MonoBehaviour
 	public void EndDrag()
 	{
 		IsDragging = false;
+		if (gm.TurnCorroborer(field))
+		{
 		if (isover && cardatt.IsClear && field.counter != 0)
 		{
 			gm.ConfirmWeather(Zone);
@@ -74,24 +92,27 @@ public class DragDropKan : MonoBehaviour
 			gm.WeatherTransform();
 			Destroy(this.gameObject);
 		}
-		if (isover && cardatt.typetext == "Weather" && field.counter < maxsize)
+		if (isover && cardatt.field == "Weather" && field.counter < maxsize && (cardatt.IsClear == false))
 		{
 			transform.SetParent(Zone.transform);
 			field.counter++;
 			gm.WeatherClause(cardatt);
 		}
-		else if (isover && field.counter < maxsize && cardatt.faccion != "Clear" && cardatt.faccion != "Weather")
+		else if (isover && field.counter < maxsize && (cardatt.IsClear == false) && cardatt.faccion != "Weather")
 		{
-			transform.SetParent(Zone.transform);
-			field.counter++;
-			if (cardatt.typetext != "Boost") gm.AttackGiver(cardatt);
-			else gm.BoostGiver(cardatt);
+			gm.PlaceCard();
 		}
 		else
 		{
 			transform.position = StartPosition;
 			transform.SetParent(StartParent.transform);
 
+		}
+		}
+		else 
+		{
+			transform.position = StartPosition;
+			transform.SetParent(StartParent.transform);
 		}
 	}
 }
