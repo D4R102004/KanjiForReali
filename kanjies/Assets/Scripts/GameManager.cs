@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngineInternal;
 
 public class GameManager : MonoBehaviour 
 {
+	public Text PlayerScore;
+	public Text PlayScore;
+	public Text OppScore;
 	List<GameObject> cards = new List<GameObject>();
 	public GameObject Card2;
 	public GameObject DenkiCard;
@@ -29,10 +33,38 @@ public class GameManager : MonoBehaviour
 	public WeatherModifiers wetmod;
 	public TurnSystem turn;
 	public PlayerLogic Player;
+	public PlayerLogic P1;
+	public PlayerLogic P2;
+	public GameObject PlayerHand;
+	public GameObject OppHand;
 
 	private void Awake()
 	{
 		
+	}
+	public void InitializePlayer()
+	{
+		if (turn.IsYourTurn)
+		{
+			Player = GameObject.Find("Player1").GetComponent<PlayerLogic>();
+			PlayerScore = GameObject.Find("Player1Power").GetComponent<Text>();
+		} 
+		else if (turn.IsYourTurn == false)
+		{
+			Player = GameObject.Find("Player2").GetComponent<PlayerLogic>();
+			PlayerScore = GameObject.Find("Player2Power").GetComponent<Text>();
+		}
+		if (PlayerScore == null) Debug.LogError("Score not found");
+	}
+
+
+	// Use this for initialization
+	void Start () 
+	{
+		PlayScore = GameObject.Find("Player1Power").GetComponent<Text>();
+		OppScore = GameObject.Find("Player2Power").GetComponent<Text>();
+		P1 = GameObject.Find("Player1").GetComponent<PlayerLogic>();
+		P2 = GameObject.Find("Player2").GetComponent<PlayerLogic>();
 		WeatherZone = GameObject.Find("Weather");
 		m = GameObject.Find("Melee");
 		r = GameObject.Find("Range");
@@ -48,26 +80,16 @@ public class GameManager : MonoBehaviour
 		BoostSo = GameObject.Find("OppBoostS");
 		turn = GameObject.Find("TurnSystem").GetComponent<TurnSystem>();
 		InitializePlayer();
-	}
-	public void InitializePlayer()
-	{
-		if (turn.IsYourTurn) Player = GameObject.Find("Player1").GetComponent<PlayerLogic>();
-		else 
-		{
-			Player = GameObject.Find("Player2").GetComponent<PlayerLogic>();
-		}
-	}
-
-
-	// Use this for initialization
-	void Start () 
-	{
+		PlayerHand = GameObject.Find("PlayerHand");
+		OppHand = GameObject.Find("OpponentHand");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{ 
-
+		PlayScore.text = P1.CollectedPower.ToString();
+		OppScore.text = P2.CollectedPower.ToString();
+		PlayerScore.text = Player.CollectedPower.ToString();
 		
 	}
 	public void AttackGiver(CardsAttributes card)
@@ -109,10 +131,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	public void PlayerEnd()
-	{
+	{ 
 		FieldAttributes m1 = m.GetComponent<FieldAttributes>();
 		FieldAttributes r1 = r.GetComponent<FieldAttributes>();
 		FieldAttributes s1 = s.GetComponent<FieldAttributes>();
+		if (turn.IsYourTurn)
+		{
+		m1 = m.GetComponent<FieldAttributes>();
+		r1 = r.GetComponent<FieldAttributes>();
+		s1 = s.GetComponent<FieldAttributes>();
+		}
+		else 
+		{
+			m1 = mo.GetComponent<FieldAttributes>();
+			r1 = ro.GetComponent<FieldAttributes>();
+			s1 = so.GetComponent<FieldAttributes>();
+		}
 		WeatherTransform();
 		for (int i = 0; i < m1.counter; i++)
 		{
@@ -171,7 +205,7 @@ public class GameManager : MonoBehaviour
 		FieldAttributes weatherfield = WeatherZone.GetComponent<FieldAttributes>();
 		weatherfield.Player = turn.IsYourTurn;
 		PlayerLogic Previous = Player;
-		InitializePlayer();
+		
 		Player.WeatherMelee = Previous.WeatherMelee;
 		Player.WeatherRange = Previous.WeatherRange;
 		Player.WeatherSiege = Previous.WeatherSiege;

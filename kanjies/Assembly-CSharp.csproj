@@ -50,7 +50,6 @@
      <Compile Include="Assets\Scripts\CardProperties.cs" />
      <Compile Include="Assets\Scripts\CardsAttributes.cs" />
      <Compile Include="Assets\Scripts\Destruction.cs" />
-     <Compile Include="Assets\Scripts\DisplayPower.cs" />
      <Compile Include="Assets\Scripts\DragDropKan.cs" />
      <Compile Include="Assets\Scripts\DrawCard.cs" />
      <Compile Include="Assets\Scripts\FieldAttributes.cs" />

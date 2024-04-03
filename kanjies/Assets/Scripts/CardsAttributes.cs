@@ -15,20 +15,21 @@ public class CardsAttributes : MonoBehaviour
 	public bool Boost;
 	private void Awake() 
 	{
-		prop = gameObject.GetComponent<CardDisplay>().card;
-		Name = prop.cardname;
-		field = prop.typetext;
-		power = prop.power;
-		ID = prop.CardID;
-		gm = gameObject.GetComponent<GameManager>();
-		faccion = prop.faccion;
-		IsClear = prop.IsClear;
-		if (field == "BoostMelee" || field == "BoostRange" || field == "BoostSiege") Boost = true;
+		
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
+		prop = gameObject.GetComponent<CardDisplay>().card;
+		Name = prop.cardname;
+		field = prop.typetext;
+		power = prop.power;
+		ID = prop.CardID;
+		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		faccion = prop.faccion;
+		IsClear = prop.IsClear;
+		if (field == "BoostMelee" || field == "BoostRange" || field == "BoostSiege") Boost = true;
 		
 	}
 	

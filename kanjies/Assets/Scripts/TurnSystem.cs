@@ -13,15 +13,16 @@ public class TurnSystem : MonoBehaviour
 	public GameManager gm;
 	public void Awake()
 	{
+		IsYourTurn = true;
+		YourTurn = 1;
+		IsOpponentTurn = 1;
 		gm = gameObject.GetComponent<GameManager>();
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
-		IsYourTurn = true;
-		YourTurn = 1;
-		IsOpponentTurn = 1;
+		
 	}
 	
 	// Update is called once per frame
@@ -38,13 +39,16 @@ public class TurnSystem : MonoBehaviour
 	}
 	public void PlayerEndTurn()
 	{
+		gm.PlayerEnd();
 		IsYourTurn = false;
 		IsOpponentTurn += 1;
-		gm.PlayerEnd();
+		gm.InitializePlayer();
 	} 
 	public void OpponentEndTurn()
 	{
+		gm.PlayerEnd();
 		IsYourTurn = true;
 		YourTurn += 1;
+		gm.InitializePlayer();
 	}
 }
