@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\InitiatePlayerHero.cs" />
      <Compile Include="Assets\Scripts\PlayerLogic.cs" />
+     <Compile Include="Assets\Scripts\Players\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
      <Compile Include="Assets\Scripts\TurnSystem.cs" />
      <Compile Include="Assets\Scripts\WeatherModifiers.cs" />
