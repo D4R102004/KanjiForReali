@@ -10,13 +10,11 @@ public class TurnSystem : MonoBehaviour
 	public int IsOpponentTurn;
 	public Text TurnText;
 	public GameMechanics logic;
-	public GameManager gm;
 	public void Awake()
 	{
 		IsYourTurn = true;
 		YourTurn = 1;
 		IsOpponentTurn = 1;
-		gm = gameObject.GetComponent<GameManager>();
 	}
 
 	// Use this for initialization
@@ -39,16 +37,12 @@ public class TurnSystem : MonoBehaviour
 	}
 	public void PlayerEndTurn()
 	{
-		gm.PlayerEnd();
 		IsYourTurn = false;
 		IsOpponentTurn += 1;
-		gm.InitializePlayer();
 	} 
 	public void OpponentEndTurn()
 	{
-		gm.PlayerEnd();
 		IsYourTurn = true;
 		YourTurn += 1;
-		gm.InitializePlayer();
 	}
 }

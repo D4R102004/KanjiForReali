@@ -14,13 +14,11 @@ public class Destruction : MonoBehaviour {
 		
 	}
 	
-    public int DestroyWeather(GameObject parent, CardsAttributes cardatt)
+    public int DestroyWeather(GameObject parent)
 	{
 		int i = 0;
 	foreach(Transform child in parent.transform)
 		{
-			string type = child.GetComponent<DragDropKan>().cardatt.faccion;
-			if (cardatt.faccion == type) GameObject.Destroy(child.gameObject);
 			i++;
 		}
 		return i;

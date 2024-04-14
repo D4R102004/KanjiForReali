@@ -46,22 +46,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CardDisplay.cs" />
-     <Compile Include="Assets\Scripts\CardProperties.cs" />
-     <Compile Include="Assets\Scripts\CardsAttributes.cs" />
+     <Compile Include="Assets\Scripts\Cards\CardDisplay.cs" />
      <Compile Include="Assets\Scripts\Destruction.cs" />
      <Compile Include="Assets\Scripts\DragDropKan.cs" />
      <Compile Include="Assets\Scripts\DrawCard.cs" />
      <Compile Include="Assets\Scripts\FieldAttributes.cs" />
      <Compile Include="Assets\Scripts\FieldProperties.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\InitiatePlayerHero.cs" />
      <Compile Include="Assets\Scripts\PlayerLogic.cs" />
-     <Compile Include="Assets\Scripts\Players\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Players\PlayerController.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
      <Compile Include="Assets\Scripts\TurnSystem.cs" />
      <Compile Include="Assets\Scripts\WeatherModifiers.cs" />
+     <Compile Include="Assets\Variables\Bool\BoolReference.cs" />
+     <Compile Include="Assets\Variables\Bool\BoolVariable.cs" />
+     <Compile Include="Assets\Variables\Cards\AttackingCard.cs" />
+     <Compile Include="Assets\Variables\Cards\AttackingCardRange.cs" />
+     <Compile Include="Assets\Variables\Cards\Card.cs" />
+     <Compile Include="Assets\Variables\Cards\ListOfCards\ListOfCards.cs" />
+     <Compile Include="Assets\Variables\Cards\Testing.cs" />
+     <Compile Include="Assets\Variables\Events\GameEvent.cs" />
+     <Compile Include="Assets\Variables\Events\GameEventListener.cs" />
+     <Compile Include="Assets\Variables\Fields\Field.cs" />
+     <Compile Include="Assets\Variables\Float\FloatReference.cs" />
+     <Compile Include="Assets\Variables\Float\FloatVariable.cs" />
+     <Compile Include="Assets\Variables\Images\ImageReference.cs" />
+     <Compile Include="Assets\Variables\Images\ImageVariable.cs" />
+     <Compile Include="Assets\Variables\Players\PlayerState.cs" />
+     <Compile Include="Assets\Variables\String\StringReference.cs" />
+     <Compile Include="Assets\Variables\String\StringVariable.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

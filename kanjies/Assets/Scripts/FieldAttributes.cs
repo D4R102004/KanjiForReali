@@ -8,11 +8,10 @@ public class FieldAttributes : MonoBehaviour
 	public string zonetype;
 	public int maxsize;
 	public int counter;
-	public CardsAttributes att;
+	
 	public bool Player;
 	private void Awake() 
 	{
-		att = gameObject.GetComponent<CardsAttributes>();
 		zonetype = field.zonetype;
 		maxsize = field.maxsize;
 		counter = 0;
