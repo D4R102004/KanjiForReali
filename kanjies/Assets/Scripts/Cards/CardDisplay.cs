@@ -32,8 +32,10 @@ public class CardDisplay : MonoBehaviour {
 		CardArtwork.sprite = card.CardArtwork.Image;
 		CardTypeArtwork.sprite = card.TypeArtwork.Image;
 	}
+	
 	void Update () 
 	{
+		SetCard();
 		if (IsDragging)
 		{
 			transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -55,9 +57,9 @@ public class CardDisplay : MonoBehaviour {
 		if (!card.HasBeenPlaced.Statement)
 		{
 		IsDragging = false;
-		Placed.Raise(this, card, null, null);
 		transform.position = StartPosition;
 		transform.SetParent(StartParent.transform);
+		Placed.Raise(this, card, null, null);
 		}
 	}
 }

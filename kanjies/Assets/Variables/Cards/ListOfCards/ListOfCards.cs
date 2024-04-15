@@ -17,5 +17,9 @@ public class ListOfCards : ScriptableObject
 	{
 		ListCard.Remove(card);
 	}
+	public void Restart()
+	{
+		ListCard = new List<Card>();
+	}
 	
 } 

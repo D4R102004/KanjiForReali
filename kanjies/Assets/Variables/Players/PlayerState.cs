@@ -27,7 +27,7 @@ public class PlayerState : ScriptableObject
 	{
 		card.CardAttack.Value += Boost.Value;
 		card.CardAttack.Value -= Weather.Value;
-		if (card.CardAttack.Value < 0) card.CardAttack.Value = 0;
+		if (card.CardAttack.Value < 0) card.CardAttack.Zero();
 	}
 	public void InsertBoost(Card card, FloatVariable Boost)
 	{
@@ -38,6 +38,25 @@ public class PlayerState : ScriptableObject
 		for (int i = Field.ListCard.Count - 1; i >= 0; i--)
 		{
 			Field.ListCard[i].CardAttack.Value += n;
+			if (Field.ListCard[i].CardAttack.Value < 0) Field.ListCard[i].CardAttack.Zero();
 		}
+	}
+	public void Restart()
+	{
+		Melee.Restart();
+		Range.Restart();
+		Siege.Restart();
+		BoostMelee.Restart();
+		BoostRange.Restart();
+		BoostSiege.Restart();
+		Hand.Restart();
+		Deck.Restart();
+		MeleeBoost.Zero();
+		RangeBoost.Zero();
+		SiegeBoost.Zero();
+		WeatherMelee.Zero();
+		WeatherRange.Zero();
+		WeatherSiege.Zero();
+		CollectedPower.Zero();
 	}
 } 

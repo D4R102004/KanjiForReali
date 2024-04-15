@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DrawCard : MonoBehaviour 
 {
+	public FloatReference WantingToDraw;
 	public GameObject card;
 	public GameObject PlayerHand;
 	public ListOfCards LogicHand;
@@ -17,20 +18,21 @@ public class DrawCard : MonoBehaviour
 	void Start () 
 	{
 		cards.Add(card);
-		for (int i = 0; i < 2; i++)
-		{
-			Draw();
-		}
+		Draw();
 	}
 	public void Draw()
 	{
-		Card c = PossibleCards[Random.Range(0, PossibleCards.Count)];
+		for (int i = 0; i < PossibleCards.Count; i++)
+		{
+		Card c = PossibleCards[i];
+		c.HasBeenPlaced.False();
 		LogicHand.Add(c);
 		GameObject playercard = Instantiate(cards[Random.Range(0, cards.Count)], new Vector3(0,0,0), Quaternion.identity);
 		playercard.GetComponent<CardDisplay>().card = c;
 		playercard.GetComponent<CardDisplay>().SetCard();
 		PlayerHand.GetComponent<Field>().VisualField.Add(playercard);
 		playercard.transform.SetParent(PlayerHand.transform);
+		}
 	}
 	
 

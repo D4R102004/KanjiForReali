@@ -8,5 +8,9 @@ public class BoolVariable : ScriptableObject
 {
 	public bool Statement;
 	public string Description;
+	public void False()
+	{
+		Statement = false;
+	}
 	
 } 

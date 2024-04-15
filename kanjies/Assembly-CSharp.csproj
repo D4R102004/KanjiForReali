@@ -61,8 +61,11 @@
      <Compile Include="Assets\Scripts\WeatherModifiers.cs" />
      <Compile Include="Assets\Variables\Bool\BoolReference.cs" />
      <Compile Include="Assets\Variables\Bool\BoolVariable.cs" />
-     <Compile Include="Assets\Variables\Cards\AttackingCard.cs" />
-     <Compile Include="Assets\Variables\Cards\AttackingCardRange.cs" />
+     <Compile Include="Assets\Variables\Cards\AttackingCards\AttackingCard.cs" />
+     <Compile Include="Assets\Variables\Cards\AttackingCards\AttackingCardRange.cs" />
+     <Compile Include="Assets\Variables\Cards\BoostCard\BoostCard.cs" />
+     <Compile Include="Assets\Variables\Cards\BoostCard\Melee\BoostCardMelee.cs" />
+     <Compile Include="Assets\Variables\Cards\BoostCard\Range\BoostCardRange.cs" />
      <Compile Include="Assets\Variables\Cards\Card.cs" />
      <Compile Include="Assets\Variables\Cards\ListOfCards\ListOfCards.cs" />
      <Compile Include="Assets\Variables\Cards\Testing.cs" />

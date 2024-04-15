@@ -5,8 +5,11 @@ using UnityEngine;
 public class Field : MonoBehaviour {
 	public StringVariable FieldName;
 	public List<GameObject> VisualField;
+	public StringVariable MyMirror;
+	public StringVariable MySwapper;
 	public GameEvent ActiveField;
 	public GameEvent Removing;
+	public GameEvent Done;
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		Debug.Log("Colliding with " + FieldName.Word);
@@ -40,7 +43,21 @@ public class Field : MonoBehaviour {
 		if (FieldName.Word == s.Word)
 		{
 			VisualField.Add(g);
+			Debug.Log("We have added this");
 			g.transform.SetParent(this.gameObject.transform);
+		}
+	}
+	public void GiveAll(Component sender, object data1, object data2, object data3)
+	{
+		StringVariable s = (StringVariable)data2;
+		if (sender is PlayerController || s.Word == FieldName.Word)
+		{
+		for (int i = VisualField.Count - 1; i >= 0; i--)
+		{
+			Removing.Raise(this, VisualField[i], MySwapper, null);
+			VisualField.RemoveAt(i);
+		}
+		Done.Raise(this, null, MyMirror, null);
 		}
 	}
 }

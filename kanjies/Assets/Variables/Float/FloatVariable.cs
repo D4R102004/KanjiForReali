@@ -8,4 +8,8 @@ public class FloatVariable : ScriptableObject
 {
 	public float Value;
 	public string Description;	
+	public void Zero()
+	{
+		Value = 0;
+	}
 }
