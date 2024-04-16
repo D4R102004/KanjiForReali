@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ListOfCards", menuName = "kanjies/ListOfCards", order = 0)]
 public class ListOfCards : ScriptableObject 
 {
+	public StringVariable ListName;
 	public List<Card> ListCard;
 	public string Description;
 	public void Add(Card card)

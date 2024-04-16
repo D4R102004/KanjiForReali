@@ -13,6 +13,7 @@ public class CardDisplay : MonoBehaviour {
 	public Text CardAttack;
 	public Image CardArtwork;
 	public Image CardTypeArtwork;
+	public Image CardBack;
 	public List<StringVariable> CardZone;
 	private bool IsDragging = false;
 	private GameObject StartParent;
@@ -31,6 +32,7 @@ public class CardDisplay : MonoBehaviour {
 		CardAttack.text = card.CardAttack.Value.ToString();
 		CardArtwork.sprite = card.CardArtwork.Image;
 		CardTypeArtwork.sprite = card.TypeArtwork.Image;
+		CardBack.sprite = card.CardBack.Image;
 	}
 	
 	void Update () 
@@ -61,5 +63,13 @@ public class CardDisplay : MonoBehaviour {
 		transform.SetParent(StartParent.transform);
 		Placed.Raise(this, card, null, null);
 		}
+	}
+	public void FlipFaceDown()
+	{
+		CardBack.enabled =true;
+	}
+	public void Reveal()
+	{
+		CardBack.enabled = false;
 	}
 }

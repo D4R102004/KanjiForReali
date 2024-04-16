@@ -10,6 +10,13 @@ public class Field : MonoBehaviour {
 	public GameEvent ActiveField;
 	public GameEvent Removing;
 	public GameEvent Done;
+	private void Update() {
+		for (int i = VisualField.Count - 1; i >=0; i--)
+		{
+		if (FieldName.Word == "OppHand") VisualField[i].GetComponent<CardDisplay>().FlipFaceDown();
+		else VisualField[i].GetComponent<CardDisplay>().Reveal();
+		}
+	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		Debug.Log("Colliding with " + FieldName.Word);
@@ -43,7 +50,7 @@ public class Field : MonoBehaviour {
 		if (FieldName.Word == s.Word)
 		{
 			VisualField.Add(g);
-			Debug.Log("We have added this");
+			Debug.Log(FieldName.Word + " has added " + g.GetComponent<CardDisplay>().card.CardName.Word);
 			g.transform.SetParent(this.gameObject.transform);
 		}
 	}

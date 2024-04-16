@@ -15,7 +15,7 @@ public class DrawCard : MonoBehaviour
 
  
 	// Use this for initialization
-	void Start () 
+	/*void Start () 
 	{
 		cards.Add(card);
 		Draw();
@@ -33,7 +33,7 @@ public class DrawCard : MonoBehaviour
 		PlayerHand.GetComponent<Field>().VisualField.Add(playercard);
 		playercard.transform.SetParent(PlayerHand.transform);
 		}
-	}
+	}*/
 	
 
 	
