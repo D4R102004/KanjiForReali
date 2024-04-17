@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ClearCardRange", menuName = "kanjies/ClearCardRange", order = 0)]
 public class ClearCardRange : ClearCard
 {
-    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone)
+    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
 		Player.Weather.Add(this);
 		Player.DestroyWeather(this.CardFaccion.Word, Player.WeatherRange);

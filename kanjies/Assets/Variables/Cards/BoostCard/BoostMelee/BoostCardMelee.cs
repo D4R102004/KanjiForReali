@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BoostCardMelee", menuName = "kanjies/BoostCardMelee", order = 0)]
 public class BoostCardMelee : BoostCard 
 {
-    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone)
+    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
         Player.InsertBoost(this, Player.MeleeBoost);
 		Player.Melee.Add(this);

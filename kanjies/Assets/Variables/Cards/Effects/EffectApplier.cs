@@ -7,10 +7,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectApplier", menuName = "kanjies/EffectApplier", order = 0)]
 public class EffectApplier : ScriptableObject 
 {
-	public void ApplyEffect(PlayerState Player, PlayerState Enemy)
+	public StringVariable EffectOwner;
+	public virtual void ApplyEffect(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
 	{
 
 	}
-	
+	public virtual void EffectRevert(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
+	{
+
+
+	}	
 } 
 

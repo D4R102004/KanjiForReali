@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeatherCard : Card 
 {
-    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone)
+    public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
 
     }

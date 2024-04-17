@@ -61,7 +61,7 @@ public class CardDisplay : MonoBehaviour {
 		IsDragging = false;
 		transform.position = StartPosition;
 		transform.SetParent(StartParent.transform);
-		Placed.Raise(this, card, null, null);
+		Placed.Raise(this, card, null, true);
 		}
 	}
 	public void FlipFaceDown()

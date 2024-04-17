@@ -30,6 +30,15 @@ public class PlayerState : ScriptableObject
 	public FloatVariable WeatherRange;
 	public FloatVariable WeatherSiege;
 	public FloatVariable CollectedPower;
+	public List<ListOfCards> AllFields;
+	public ListOfCards TypeGetZone(StringVariable ZoneType)
+	{
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			if (ZoneType == AllFields[i].ListType) return AllFields[i];
+		}
+		return null;
+	}
 	public void ApplyBoost(Card card, FloatVariable Boost, FloatVariable Weather)
 	{
 		card.CardAttack.Value += Boost.Value;
@@ -99,11 +108,37 @@ public class PlayerState : ScriptableObject
 			if (Weather.ListCard[i].CardFaccion.Word == type)
 			{
 			    reduce.Value -= Weather.ListCard[i].CardAttack.Value;
+				Weather.ListCard[i].HasBeenPlayed();
 				Destroyed.Raise(null, Weather.ListCard[i], null, null);
 				Weather.ListCard.RemoveAt(i);
 			}
 		}
 		Update();
+	}
+	public void DestroyBoost(Card c, ListOfCards field, FloatVariable reduce)
+	{
+		if (field.ListCard.Contains(c))
+		{
+			Debug.Log("Destroying " + c.CardName.Word + " in " + field.ListName.Word);
+		for (int i = field.ListCard.Count - 1; i >= 0; i--)
+		{
+			if (field.ListCard[i] == c)
+			{
+				reduce.Value -= field.ListCard[i].CardAttack.Value;
+				field.ListCard[i].HasBeenPlayed();
+				Destroyed.Raise(null, field.ListCard[i], null, null);
+				Debug.Log("We have destroyed it");
+				field.ListCard.RemoveAt(i);
+			}
+		}
+		}
+		Update();
+	}
+	public void SearchDestroyBoost(Card c)
+	{
+		DestroyBoost(c, BoostMelee, MeleeBoost);
+		DestroyBoost(c, BoostRange, RangeBoost);
+		DestroyBoost(c, BoostSiege, SiegeBoost);
 	}
 	public void Update()
 	{
@@ -137,6 +172,8 @@ public class PlayerState : ScriptableObject
 			field.Remove(card);
 			Hand.Add(card);
 			card.HasBeenPlaced.False();
+			card.Normalize();
+			card.RevertEffect(null, null, null, null);
 			Bounced.Raise(null, card, null, null);
 		}
 	}
@@ -144,7 +181,9 @@ public class PlayerState : ScriptableObject
 	{
 		Card c = FindStrongest(field);
 		ReturnToTheHand(c, field);
+		if (c != null) c.HasBeenPlayed();
 		field.Add(card);
+		card.HasBeenPlayed();
 	}
 	public Card FindStrongest(ListOfCards field)
 	{
@@ -162,5 +201,21 @@ public class PlayerState : ScriptableObject
 			if (field.ListCard[i].CardAttack.Value == n) return field.ListCard[i];
 		}
 		return null;
+	}
+	public void Calculate()
+	{
+		CollectedPower.Value = 0;
+		for (int i = Melee.ListCard.Count - 1; i >= 0; i--)
+		{
+			CollectedPower.Value += Melee.ListCard[i].CardAttack.Value;
+		}
+		for (int i = Range.ListCard.Count - 1; i >= 0; i--)
+		{
+			CollectedPower.Value += Range.ListCard[i].CardAttack.Value;
+		}
+		for (int i = Siege.ListCard.Count - 1; i >= 0; i--)
+		{
+			CollectedPower.Value += Siege.ListCard[i].CardAttack.Value;
+		}
 	}
 } 

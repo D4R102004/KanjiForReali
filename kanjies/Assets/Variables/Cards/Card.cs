@@ -19,7 +19,8 @@ public class Card : ScriptableObject
 	public ImageReference CardBack;
 	public List<StringVariable> CardZone;
 	public FloatReference OriginalAttack;
-	public virtual void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone)
+	public EffectApplier Effect;
+	public virtual void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
 	{
 		
 	}
@@ -30,5 +31,18 @@ public class Card : ScriptableObject
 	public void SetOwner(StringVariable player)
 	{
 		CardOwner = player;
+		Effect.EffectOwner = player;
+	}
+	public void HasBeenPlayed()
+	{
+		this.HasBeenPlaced.Statement = true;
+	}
+	public void ApplyEffect(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
+	{
+		Effect.ApplyEffect(Player, Enemy, Zone, ZoneType);
+	}
+	public void RevertEffect(PlayerState player, PlayerState enemy, StringVariable Zone, StringVariable ZoneType)
+	{
+		Effect.EffectRevert(player, enemy, Zone, ZoneType);
 	}
 } 

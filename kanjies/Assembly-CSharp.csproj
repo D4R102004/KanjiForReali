@@ -59,6 +59,9 @@
      <Compile Include="Assets\Scripts\Players\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Players\RestartAndDeck.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
+     <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerDisplayer.cs" />
+     <Compile Include="Assets\Scripts\Text\Player2\OppPowerDisplay.cs" />
+     <Compile Include="Assets\Scripts\Text\SingleTextDisplayer.cs" />
      <Compile Include="Assets\Scripts\TurnSystem.cs" />
      <Compile Include="Assets\Scripts\WeatherModifiers.cs" />
      <Compile Include="Assets\Variables\Bool\BoolReference.cs" />
@@ -73,7 +76,10 @@
      <Compile Include="Assets\Variables\Cards\ClearCard\ClearCardMelee\ClearCardMelee.cs" />
      <Compile Include="Assets\Variables\Cards\ClearCard\ClearCardRange\ClearCardRange.cs" />
      <Compile Include="Assets\Variables\Cards\Decoy\DecoyCard.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\ApplyBoostEffect\ApplyBoost.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\Boost\BoostMeleeEffect.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\EffectApplier.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\NullEffect\NullEffect.cs" />
      <Compile Include="Assets\Variables\Cards\ListOfCards\ListOfCards.cs" />
      <Compile Include="Assets\Variables\Cards\Testing.cs" />
      <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherCard.cs" />

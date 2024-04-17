@@ -11,11 +11,24 @@ public class PlayerController : MonoBehaviour {
 	public PlayerState CurrentPlayer;
 	public PlayerState StandByPlayer;
 	public StringVariable ToPlaceField;
+	public StringVariable ToPlaceFieldType;
 	public GameEvent RemovedCard;
 	public GameEvent TurnSwap;
+	public GameEvent ChangeTexts;
+	public GameEvent Create;
+	public GameEvent Placed;
 	private void Start() 
 	{
 
+	}
+	public void AttemptingPlacement(Component sender, object data1, object data2, object data3)
+	{
+		Debug.Log("Trying to place a card");
+		if (ToPlaceField != null)
+		{
+			PlaceCard(this, data1, data2, data3);
+			SwapPlayers();
+		}
 	}
 	public void SwapPlayers()
 	{
@@ -23,23 +36,23 @@ public class PlayerController : MonoBehaviour {
 		CurrentPlayer = StandByPlayer;
 		StandByPlayer = temp;
 		TurnSwap.Raise(this, null, swapper, null);
+		ChangeTexts.Raise(this, CurrentPlayer, StandByPlayer, null);
 	}
 	public void PlaceCard(Component sender, object data1, object data2, object data3)
 	{
-		Debug.Log("Trying to place a card");
-		if (ToPlaceField != null)
-		{
 		Debug.Log("Placing in " + ToPlaceField.Word);
 		Card card = (Card)data1;
-		card.Place(CurrentPlayer, StandByPlayer, ToPlaceField);
 		RemovedCard.Raise(this, card, ToPlaceField, null);
-		SwapPlayers();
-		}
+		card.Place(CurrentPlayer, StandByPlayer, ToPlaceField, ToPlaceFieldType);
+		card.ApplyEffect(CurrentPlayer, StandByPlayer, ToPlaceField, ToPlaceFieldType);
+		CalculatePlayers();
 	}
 	public void EstablishField(Component Sender, object data1, object data2, object data3)
 	{
-		StringVariable s = (StringVariable)data1;
-		ToPlaceField = s;
+		StringVariable name = (StringVariable)data1;
+		ToPlaceField = name;
+		StringVariable type = (StringVariable)data2;
+		ToPlaceFieldType = type;
 	}
 	public void Destroyed(Component sender, object data1, object data2, object data3)
 	{
@@ -59,5 +72,24 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("Bouncing " + c.CardName.Word + " to " + s.Word);
 		RemovedCard.Raise(this, c, s, null);
 	}
-	
+	public void CalculatePlayers()
+	{
+		CurrentPlayer.Calculate();
+		StandByPlayer.Calculate();
+	}
+	public void CreateBoost(Component sender, object data1, object data2, object data3)
+	{
+		Card c = (Card)data1;
+		if (c != null) Debug.Log(c.CardName.Word + " is not null");
+		Create.Raise(this, c, DownHand, null);
+		StringVariable s = (StringVariable)data2;
+		ToPlaceField = s;
+		PlaceCard(this, c, null, null);
+	}
+	public void RemoveBoost(Component sender, object data1, object data2, object data3)
+	{
+		Card c = (Card)data1;
+		CurrentPlayer.SearchDestroyBoost(c);
+		StandByPlayer.SearchDestroyBoost(c);
+	}
 }

@@ -8,6 +8,9 @@ using UnityEngine;
 public class ListOfCards : ScriptableObject 
 {
 	public StringVariable ListName;
+	public StringVariable ListType;
+	public FloatVariable AssociatedBuff;
+	public FloatVariable AssociatedDebuff;
 	public List<Card> ListCard;
 	public string Description;
 	public void Add(Card card)
@@ -22,5 +25,12 @@ public class ListOfCards : ScriptableObject
 	{
 		ListCard = new List<Card>();
 	}
-	
+	public FloatVariable GetBuff()
+	{
+		return AssociatedBuff;
+	}
+	public FloatVariable GetDebuff()
+	{
+		return AssociatedDebuff;
+	}
 } 

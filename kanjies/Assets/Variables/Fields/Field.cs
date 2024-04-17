@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Field : MonoBehaviour {
 	public StringVariable FieldName;
+	public StringVariable FieldType;
 	public List<GameObject> VisualField;
 	public StringVariable MyMirror;
 	public StringVariable MySwapper;
@@ -21,9 +22,12 @@ public class Field : MonoBehaviour {
 	{
 		Debug.Log("Colliding with " + FieldName.Word);
 		Card c = (Card)other.gameObject.GetComponent<CardDisplay>().card;
+		if (c.HasBeenPlaced.Statement == false)
+		{
 		for (int i = c.CardZone.Count - 1; i >= 0; i--)
 		{
-			if (c.CardZone[i].Word == FieldName.Word) ActiveField.Raise(this, FieldName, null, null);
+			if (c.CardZone[i].Word == FieldName.Word) ActiveField.Raise(this, FieldName, FieldType, null);
+		}
 		}
 	}
 	private void OnCollisionExit2D(Collision2D other) 
