@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Players\RestartAndDeck.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
      <Compile Include="Assets\Scripts\Rounds\ButtonRound.cs" />
+     <Compile Include="Assets\Scripts\Rounds\Graveyard1stCheck.cs" />
      <Compile Include="Assets\Scripts\Rounds\ImageGameOver.cs" />
      <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerDisplayer.cs" />
      <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerHealthDisplay.cs" />

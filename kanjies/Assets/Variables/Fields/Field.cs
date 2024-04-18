@@ -12,6 +12,7 @@ public class Field : MonoBehaviour {
 	public GameEvent ActiveField;
 	public GameEvent Removing;
 	public GameEvent Done;
+	
 	private void Update() {
 		for (int i = VisualField.Count - 1; i >=0; i--)
 		{

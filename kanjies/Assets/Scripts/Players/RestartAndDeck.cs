@@ -21,6 +21,8 @@ public class RestartAndDeck : MonoBehaviour
 		P2.PlayerHP.Value = 2;
 		P1.PlayerPassed.Statement = false;
 		P2.PlayerPassed.Statement = false;
+		P1.IsFirstTurn.Statement = true;
+		P2.IsFirstTurn.Statement = true;
 	}
 	public void DeckStarter()
 	{

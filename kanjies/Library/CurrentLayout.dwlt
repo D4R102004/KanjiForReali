@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 30
     width: 1491
     height: 800
-  m_MinSize: {x: 681, y: 342}
-  m_MaxSize: {x: 12006, y: 8042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 10
 --- !u!114 &3
@@ -64,8 +64,8 @@ MonoBehaviour:
     y: 0
     width: 325
     height: 800
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -90,8 +90,8 @@ MonoBehaviour:
     y: 0
     width: 288
     height: 515
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -115,14 +115,14 @@ MonoBehaviour:
     y: 515
     width: 1166
     height: 285
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -207,8 +207,8 @@ MonoBehaviour:
     y: 0
     width: 1166
     height: 800
-  m_MinSize: {x: 406, y: 342}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 11
 --- !u!114 &10
@@ -400,19 +400,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Text
+    - Assets/ScriptableObjects/Players
   m_ViewMode: 1
   m_StartGridSize: 89
   m_LastFolders:
-  - Assets/Scripts/Text
+  - Assets/ScriptableObjects/Players
   m_LastFoldersGridSize: 89
   m_LastProjectPath: C:\Users\adria\OneDrive\Desktop\KanjiforReal\CardDawn\KanjiForReal\kanjies
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1305}
-    m_SelectedIDs: c8250000
-    m_LastClickedID: 9672
-    m_ExpandedIDs: 0000000018250000482500005a250000602500006825000092250000a8250000c8250000cc250000ec2500000a260000182600002c26000038260000422600004e260000722600008a260000ae260000bc260000da260000e22600005a270000642700007e27000092270000ac270000da2700001e2800004a2800006428000070280000882800002c820000c2ac0000c8ac0000eabd0000f0bd0000ccd5000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 1193}
+    m_SelectedIDs: d6250000
+    m_LastClickedID: 9686
+    m_ExpandedIDs: 000000002a2500005c250000742500007c25000086250000a0250000ba250000d6250000f8250000fc2500001c2600003a2600004e2600005426000068260000782600008626000098260000c6260000e6260000102700001e2700004a2700005227000056270000da270000e62700000e280000242800003e2800004228000072280000a0280000c6280000fc28000020290000282900002e2900004c29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,7 +440,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000018250000482500005a250000602500006825000092250000a8250000c8250000cc250000ec2500000a260000182600002c26000038260000422600004e260000722600008a260000ae260000bc260000da260000e2260000642700007e27000092270000ac270000da2700001e2800004a280000642800007028000088280000
+    m_ExpandedIDs: 000000002a2500005c250000742500007c25000086250000a0250000ba250000d6250000f8250000fc2500001c2600003a2600004e2600005426000068260000782600008626000098260000c6260000e6260000102700001e2700004a2700005227000056270000da270000e62700000e280000242800003e2800004228000072280000a0280000c6280000fc28000020290000282900002e2900004c290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -465,8 +465,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: de280000
-    m_LastClickedInstanceID: 10462
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000022270000da2400008e2b00001a250000682500004e270000f602ffff24c5feff3451fbff242e000076250000f825000000000000743f00000a26000032260000c8260000
     m_RenameOverlay:
@@ -556,23 +556,23 @@ MonoBehaviour:
     height: 494
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4a290000
-    m_LastClickedID: 10570
-    m_ExpandedIDs: a663fbff4877fbff3420fcff2421fcff025ffeff3a78fefffa5affff3a5cffff5683ffffe6fbffff00000000b0280000de280000fe280000162900003c29000088290000b4290000de290000f0290000022a00001e2a0000
+    m_SelectedIDs: ee56ffff
+    m_LastClickedID: 0
+    m_ExpandedIDs: e4fbffff0000000096290000482a0000b42a00005a2b00006c2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: GameManager
+      m_OriginalName: GameManager
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11116
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -613,9 +613,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 457.40732, y: 240.02931, z: 0}
+    m_Target: {x: 414.08765, y: 219.86588, z: 0}
     speed: 2
-    m_Value: {x: 457.40732, y: 240.02931, z: 0}
+    m_Value: {x: 414.08765, y: 219.86588, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -642,9 +642,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 476.59036
+    m_Target: 480.02798
     speed: 2
-    m_Value: 476.59036
+    m_Value: 480.02798
   m_Ortho:
     m_Target: 1
     speed: 2

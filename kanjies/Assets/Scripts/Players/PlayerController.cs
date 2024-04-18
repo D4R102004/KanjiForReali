@@ -22,9 +22,10 @@ public class PlayerController : MonoBehaviour {
 	public GameEvent Placed;
 	public GameEvent GameEnded;
 	public GameEvent DrawGame;
+	public FloatVariable CardsDiscarded;
 	private void Start() 
 	{
-
+		CardsDiscarded.Zero();
 	}
 	public void CommenceRound()
 	{
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 	public void AttemptingPlacement(Component sender, object data1, object data2, object data3)
 	{
 		Debug.Log("Trying to place a card");
-		if (ToPlaceField != null)
+		if (ToPlaceField != null && ToPlaceField != DownGraveyard)
 		{
 			ListOfCards PlacingIn = null;
 			if (ToPlaceFieldOwner == DownOwner) PlacingIn = CurrentPlayer.TypeGetZone(ToPlaceFieldType);
@@ -105,6 +106,8 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void SwapPlayers()
 	{
+		CurrentPlayer.IsFirstTurn.False();
+		CardsDiscarded.Zero();
 		PlayerState temp = CurrentPlayer;
 		CurrentPlayer = StandByPlayer;
 		StandByPlayer = temp;
@@ -160,6 +163,24 @@ public class PlayerController : MonoBehaviour {
 		else s = UpHand;
 		Debug.Log("Drawing " + c.CardName.Word);
 		Create.Raise(this, c, s, null);
+	}
+	public void Graveyard1st(Component sender, object data1, object data2, object data3)
+	{
+		Card c = (Card)data1;
+		if (ToPlaceField == DownGraveyard)
+		{
+		if (CurrentPlayer.IsFirstTurn.Statement == true)
+		{
+			if (CardsDiscarded.Value < 2)
+			{
+				CurrentPlayer.Hand.Remove(c);
+				CurrentPlayer.Graveyard.Add(c);
+				CurrentPlayer.Draw();
+				CardsDiscarded.Value += 1;
+				Destroyed(this, c, null, null);
+			}
+		}
+		}
 	}
 	public void CreateBoost(Component sender, object data1, object data2, object data3)
 	{

@@ -9,6 +9,7 @@ using System;
 [CreateAssetMenu(fileName = "PlayerState", menuName = "kanjies/PlayerState", order = 0)]
 public class PlayerState : ScriptableObject 
 {
+	public BoolVariable IsFirstTurn;
 	public BoolVariable PlayerPassed;
 	public FloatVariable PlayerHP;
 	public StringVariable PlayerName;
