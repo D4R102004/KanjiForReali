@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 
@@ -9,9 +10,11 @@ public class DecoyCard : Card
 {
     public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
-		if (Zone.Word == "OppMelee") Enemy.Decoy(this, Enemy.Melee);
-		else if (Zone.Word == "OppRange") Enemy.Decoy(this, Enemy.Range);
-		else Enemy.Decoy(this, Enemy.Siege);
+      Player.Hand.Remove(this);
+      ListOfCards ImGoing = Enemy.TypeGetZone(ZoneType);
+      ImGoing.Add(this);
+      this.HasBeenPlayed();
+      Enemy.Update();
     }
 
 

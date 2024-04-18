@@ -5,6 +5,7 @@ using UnityEngine;
 public class Field : MonoBehaviour {
 	public StringVariable FieldName;
 	public StringVariable FieldType;
+	public StringVariable FieldOwner;
 	public List<GameObject> VisualField;
 	public StringVariable MyMirror;
 	public StringVariable MySwapper;
@@ -26,7 +27,7 @@ public class Field : MonoBehaviour {
 		{
 		for (int i = c.CardZone.Count - 1; i >= 0; i--)
 		{
-			if (c.CardZone[i].Word == FieldName.Word) ActiveField.Raise(this, FieldName, FieldType, null);
+			if (c.CardZone[i].Word == FieldName.Word) ActiveField.Raise(this, FieldName, FieldType, FieldOwner);
 		}
 		}
 	}

@@ -9,9 +9,11 @@ using System;
 [CreateAssetMenu(fileName = "PlayerState", menuName = "kanjies/PlayerState", order = 0)]
 public class PlayerState : ScriptableObject 
 {
+	public BoolVariable PlayerPassed;
+	public FloatVariable PlayerHP;
 	public StringVariable PlayerName;
 	public GameEvent Destroyed;
-	public GameEvent Create;
+	public GameEvent Drawn;
 	public GameEvent Bounced;
 	public ListOfCards Melee;
 	public ListOfCards Range;
@@ -31,6 +33,93 @@ public class PlayerState : ScriptableObject
 	public FloatVariable WeatherSiege;
 	public FloatVariable CollectedPower;
 	public List<ListOfCards> AllFields;
+	public void CleanAllFields()
+	{
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				Destroy(AllFields[i].ListCard[j], AllFields[i]);
+			}
+		}
+		MeleeBoost.Zero();
+		RangeBoost.Zero();
+		SiegeBoost.Zero();
+		WeatherMelee.Zero();
+		WeatherRange.Zero();
+		WeatherSiege.Zero();
+		CollectedPower.Zero();
+	}
+	public Card GetStrongestCard()
+	{
+		float max = -1;
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (AllFields[i].ListCard[j] is AttackingCard)
+				{
+				if (AllFields[i].ListCard[j].CardAttack.Value > max) max = AllFields[i].ListCard[j].CardAttack.Value;
+				}
+			}
+		}
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (AllFields[i].ListCard[j] is AttackingCard)
+				{
+					if (AllFields[i].ListCard[j].CardAttack.Value == max) return AllFields[i].ListCard[j];
+				}
+			}
+		}
+		return null;
+	}
+	public Card GetWeakestCard()
+	{
+		float min = 10000;
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (AllFields[i].ListCard[j] is AttackingCard)
+				{
+				if (AllFields[i].ListCard[j].CardAttack.Value < min) min = AllFields[i].ListCard[j].CardAttack.Value;
+				}
+			}
+		}
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (AllFields[i].ListCard[j] is AttackingCard)
+				{
+					if (AllFields[i].ListCard[j].CardAttack.Value == min) return AllFields[i].ListCard[j];
+				}
+			}
+		}
+		return null;
+	}
+	public List<Card> GetAllWithSameName(string name)
+	{
+		List<Card> AllName = new List<Card>();
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (AllFields[i].ListCard[j].CardName.Word == name) AllName.Add(AllFields[i].ListCard[j]);
+			}
+		}
+		return AllName;
+	}
+	public ListOfCards GetCardLocation(Card c)
+	{
+		for (int i = AllFields.Count - 1; i >= 0; i--)
+		{
+			if (AllFields[i].ListCard.Contains(c)) return AllFields[i];
+		}
+		return null;
+	}
 	public ListOfCards TypeGetZone(StringVariable ZoneType)
 	{
 		for (int i = AllFields.Count - 1; i >= 0; i--)
@@ -41,9 +130,12 @@ public class PlayerState : ScriptableObject
 	}
 	public void ApplyBoost(Card card, FloatVariable Boost, FloatVariable Weather)
 	{
+		if (card is AttackingCard)
+		{
 		card.CardAttack.Value += Boost.Value;
 		card.CardAttack.Value -= Weather.Value;
 		if (card.CardAttack.Value < 0) card.CardAttack.Zero();
+		}
 	}
 	public void InsertBoost(Card card, FloatVariable Boost)
 	{
@@ -68,6 +160,7 @@ public class PlayerState : ScriptableObject
 		Weather.Restart();
 		Hand.Restart();
 		Deck.Restart();
+		Graveyard.Restart();
 		MeleeBoost.Zero();
 		RangeBoost.Zero();
 		SiegeBoost.Zero();
@@ -78,11 +171,13 @@ public class PlayerState : ScriptableObject
 	}
 	public void Draw()
 	{
-		Debug.Log("Drawing");
+		if (Deck.ListCard.Count > 0 && Hand.ListCard.Count < 10)
+		{
 		Card c = Deck.ListCard[0];
 		Hand.Add(c);
 		Deck.Remove(c);
-		Create.Raise(null, c, Hand.ListName, null);
+		Drawn.Raise(null, c, null, null);
+		}
 	}
 	public void ListSwap(ListOfCards l)
 	{
@@ -115,6 +210,17 @@ public class PlayerState : ScriptableObject
 		}
 		Update();
 	}
+	public void Destroy(Card c, ListOfCards field)
+	{
+		if (field.ListCard.Contains(c))
+		{
+			Graveyard.Add(c);
+			c.HasBeenPlayed();
+			field.Remove(c);
+			c.Normalize();
+			Destroyed.Raise(null, c, null, null);
+		}
+	}
 	public void DestroyBoost(Card c, ListOfCards field, FloatVariable reduce)
 	{
 		if (field.ListCard.Contains(c))
@@ -145,6 +251,7 @@ public class PlayerState : ScriptableObject
 		UpdateField(Melee, MeleeBoost, WeatherMelee);
 		UpdateField(Range, RangeBoost, WeatherRange);
 		UpdateField(Siege, SiegeBoost, WeatherSiege);
+		Calculate();
 	}
 	public void UpdateField(ListOfCards field, FloatVariable buff, FloatVariable debuff)
 	{
@@ -173,18 +280,10 @@ public class PlayerState : ScriptableObject
 			Hand.Add(card);
 			card.HasBeenPlaced.False();
 			card.Normalize();
-			card.RevertEffect(null, null, null, null);
 			Bounced.Raise(null, card, null, null);
 		}
 	}
-	public void Decoy(Card card, ListOfCards field)
-	{
-		Card c = FindStrongest(field);
-		ReturnToTheHand(c, field);
-		if (c != null) c.HasBeenPlayed();
-		field.Add(card);
-		card.HasBeenPlayed();
-	}
+	
 	public Card FindStrongest(ListOfCards field)
 	{
 		float max = 0;

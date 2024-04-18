@@ -9,8 +9,9 @@ public class ClearCardRange : ClearCard
 {
     public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
-		Player.Weather.Add(this);
-		Player.DestroyWeather(this.CardFaccion.Word, Player.WeatherRange);
-		Enemy.DestroyWeather(this.CardFaccion.Word, Enemy.WeatherRange);
+      Player.Hand.Remove(this);
+		  Player.Weather.Add(this);
+		  Player.DestroyWeather(this.CardFaccion.Word, Player.WeatherRange);
+		  Enemy.DestroyWeather(this.CardFaccion.Word, Enemy.WeatherRange);
     }
 }

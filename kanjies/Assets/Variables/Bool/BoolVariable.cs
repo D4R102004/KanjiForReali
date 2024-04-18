@@ -12,5 +12,9 @@ public class BoolVariable : ScriptableObject
 	{
 		Statement = false;
 	}
+	public void True()
+	{
+		Statement = true;
+	}
 	
 } 

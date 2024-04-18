@@ -17,6 +17,10 @@ public class RestartAndDeck : MonoBehaviour
 		P1.Shuffle();
 		P2.Shuffle();
 		StartingHand();
+		P1.PlayerHP.Value = 2;
+		P2.PlayerHP.Value = 2;
+		P1.PlayerPassed.Statement = false;
+		P2.PlayerPassed.Statement = false;
 	}
 	public void DeckStarter()
 	{

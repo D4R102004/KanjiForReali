@@ -11,6 +11,7 @@ public class ListOfCards : ScriptableObject
 	public StringVariable ListType;
 	public FloatVariable AssociatedBuff;
 	public FloatVariable AssociatedDebuff;
+	public FloatVariable AssociatedCount;
 	public List<Card> ListCard;
 	public string Description;
 	public void Add(Card card)
@@ -32,5 +33,10 @@ public class ListOfCards : ScriptableObject
 	public FloatVariable GetDebuff()
 	{
 		return AssociatedDebuff;
+	}
+	public bool NotFull()
+	{
+		if (ListCard.Count < AssociatedCount.Value) return true;
+		return false;
 	}
 } 

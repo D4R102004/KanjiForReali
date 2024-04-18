@@ -59,7 +59,11 @@
      <Compile Include="Assets\Scripts\Players\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Players\RestartAndDeck.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
+     <Compile Include="Assets\Scripts\Rounds\ButtonRound.cs" />
+     <Compile Include="Assets\Scripts\Rounds\ImageGameOver.cs" />
      <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerDisplayer.cs" />
+     <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerHealthDisplay.cs" />
+     <Compile Include="Assets\Scripts\Text\Player2\OppHealthDisplay.cs" />
      <Compile Include="Assets\Scripts\Text\Player2\OppPowerDisplay.cs" />
      <Compile Include="Assets\Scripts\Text\SingleTextDisplayer.cs" />
      <Compile Include="Assets\Scripts\TurnSystem.cs" />
@@ -78,7 +82,13 @@
      <Compile Include="Assets\Variables\Cards\Decoy\DecoyCard.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\ApplyBoostEffect\ApplyBoost.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\Boost\BoostMeleeEffect.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\CleanLowestStroke\CleanLowestRow.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\DecoyEffects\DecoyEffect.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\DestroyRivalWeakest\DestroyRivalWeakest.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\DestroyStrongestEffect\DestroyStrongest.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\Draw\DrawEffect.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\EffectApplier.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\MultiplyAttack\MultiplyAttack.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\NullEffect\NullEffect.cs" />
      <Compile Include="Assets\Variables\Cards\ListOfCards\ListOfCards.cs" />
      <Compile Include="Assets\Variables\Cards\Testing.cs" />

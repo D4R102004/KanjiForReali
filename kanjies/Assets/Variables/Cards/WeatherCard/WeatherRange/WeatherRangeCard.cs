@@ -10,6 +10,7 @@ public class WeatherRangeCard : WeatherCard
 {
     public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {
+		Player.Hand.Remove(this);
 		Player.InsertBoost(this, Player.WeatherRange);
 		Player.Weather.Add(this);
 		Player.IterateField(this.CardAttack.Value * -1, Player.Range);
