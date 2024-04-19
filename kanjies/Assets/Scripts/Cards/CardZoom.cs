@@ -12,7 +12,7 @@ public class CardZoom : MonoBehaviour {
 	public void OnHoverEnter()
 	{
 		ZoomCard = Instantiate(gameObject, new Vector2(Input.mousePosition.x, Input.mousePosition.y), Quaternion.identity);
-SendZoom.Raise(this, ZoomCard, null, null);
+        SendZoom.Raise(this, ZoomCard, null, null);
 	}
 	public void OnHoverexit()
 	{

@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
 			CurrentPlayer.PlayerHP.Value--;
 			GameOver();
 			CommenceRound();
+			SwapPlayers();
 		}
 		else 
 		{
