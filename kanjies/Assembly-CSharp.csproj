@@ -47,15 +47,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Cards\CardDisplay.cs" />
+     <Compile Include="Assets\Scripts\Cards\CardZoom.cs" />
      <Compile Include="Assets\Scripts\Cards\HeroAbilityButton.cs" />
+     <Compile Include="Assets\Scripts\Cards\ZoomDisplayer.cs" />
      <Compile Include="Assets\Scripts\Destruction.cs" />
      <Compile Include="Assets\Scripts\DragDropKan.cs" />
-     <Compile Include="Assets\Scripts\DrawCard.cs" />
      <Compile Include="Assets\Scripts\FieldAttributes.cs" />
      <Compile Include="Assets\Scripts\FieldProperties.cs" />
      <Compile Include="Assets\Scripts\GameMechanics.cs" />
      <Compile Include="Assets\Scripts\InitiatePlayerHero.cs" />
-     <Compile Include="Assets\Scripts\PlayerLogic.cs" />
      <Compile Include="Assets\Scripts\Players\Creator.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Players\RestartAndDeck.cs" />

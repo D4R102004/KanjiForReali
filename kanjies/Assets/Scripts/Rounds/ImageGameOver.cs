@@ -34,7 +34,6 @@ public class ImageGameOver : MonoBehaviour
 	}
 	public void StartGame()
 	{
-		Debug.Log("Trying to start the game");
 		Gamestarted.Raise(pc, null, null, null);
 		InitButton.enabled = false;
 		InitButton.gameObject.GetComponent<Image>().enabled = false;

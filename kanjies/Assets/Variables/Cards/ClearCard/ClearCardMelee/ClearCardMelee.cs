@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCardMelee : ClearCard {
+
+[CreateAssetMenu(fileName = "ClearCardMelee", menuName = "kanjies/ClearCardMelee", order = 0)]
+public class ClearCardMelee : ClearCard
+{
 
 	public override void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
     {

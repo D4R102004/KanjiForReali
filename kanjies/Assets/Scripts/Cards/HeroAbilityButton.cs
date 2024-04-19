@@ -20,7 +20,6 @@ public class HeroAbilityButton : MonoBehaviour
 	}
 	public void HeroAbility(Component sender, object data1, object data2, object data3)
 	{
-		Debug.Log("Applying Hero effect of " + Hero.CardName.Word + ".");
 		PlayerController p = (PlayerController)sender;
 		if (Hero.CardOwner == p.CurrentPlayer.PlayerName)
 		{

@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
 	{
 		Card c = (Card)data1;
 		StringVariable s = null;
-		Debug.Log("We are creating heros");
 		if (c.CardOwner == CurrentPlayer.PlayerName) 
 		{
 			s = DownHero;
