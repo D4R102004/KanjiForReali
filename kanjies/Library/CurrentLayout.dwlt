@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,7 +106,7 @@ MonoBehaviour:
     y: 30
     width: 1489
     height: 799
-  m_MinSize: {x: 683, y: 492}
+  m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 10
@@ -130,7 +130,7 @@ MonoBehaviour:
     y: 0
     width: 1164
     height: 799
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 11
@@ -154,8 +154,8 @@ MonoBehaviour:
     y: 0
     width: 1164
     height: 500
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
   controlID: 12
 --- !u!114 &8
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 288
     height: 500
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -366,24 +366,24 @@ MonoBehaviour:
     width: 286
     height: 479
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a42e0000
-    m_LastClickedID: 11940
-    m_ExpandedIDs: 98ecffffe4fbffff00000000842e0000542f00005e2f00006a2f0000
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: c62e0000
+    m_LastClickedID: 11974
+    m_ExpandedIDs: e4fbffff00000000942f00009e2f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: BigTypeText
-      m_OriginalName: BigTypeText
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -36776
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -424,9 +424,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 128.62172, y: 283.36053, z: 0}
+    m_Target: {x: 171.69485, y: 237.26006, z: 0}
     speed: 2
-    m_Value: {x: 128.62172, y: 283.36053, z: 0}
+    m_Value: {x: 171.69485, y: 237.26006, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -453,9 +453,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 414.6969
+    m_Target: 317.49115
     speed: 2
-    m_Value: 414.6969
+    m_Value: 317.49115
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -572,18 +572,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/ScriptableObjects/Cards/Heros/ReunionHero(Combined)
+    - Assets/ScriptableObjects/Events
   m_ViewMode: 1
   m_StartGridSize: 89
   m_LastFolders:
-  - Assets/ScriptableObjects/Cards/Heros/ReunionHero(Combined)
+  - Assets/ScriptableObjects/Events
   m_LastFoldersGridSize: 89
   m_LastProjectPath: C:\Users\adria\OneDrive\Desktop\KanjiforReal\CardDawn\KanjiForReal\kanjies
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1451}
-    m_SelectedIDs: b82c0000
-    m_LastClickedID: 11448
+    scrollPos: {x: 0, y: 1723}
+    m_SelectedIDs: a0250000
+    m_LastClickedID: 9632
     m_ExpandedIDs: 000000003c2500006e2500007825000098250000ac250000b8250000d8250000ec250000fe250000002600004c26000086260000c0260000c6260000cc2600000027000038270000542700005e270000762700007a2700007c270000982700009c270000b2270000c6270000ce270000162800007228000084280000c4280000e4280000ec28000030290000382900003a2900003c2900004c290000082a0000102a0000142a0000402a0000562a00006c2a0000922a00009c2a0000c22a0000c82a0000d62a0000ea2a0000f22a0000362b0000462b0000742b0000862b0000c42b0000d82b0000dc2b0000f02b0000342c0000822c0000882c0000942c00009c2c0000b22c0000b82c0000ce2c0000d42c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 67}
     m_GridSize: 89
   m_DirectoriesAreaWidth: 202
 --- !u!114 &18
@@ -719,7 +719,7 @@ MonoBehaviour:
     y: 101
     width: 323
     height: 778
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 1134.9551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 161
