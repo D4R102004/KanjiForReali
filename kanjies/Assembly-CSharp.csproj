@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Cards\CardDisplay.cs" />
+     <Compile Include="Assets\Scripts\Cards\HeroAbilityButton.cs" />
      <Compile Include="Assets\Scripts\Destruction.cs" />
      <Compile Include="Assets\Scripts\DragDropKan.cs" />
      <Compile Include="Assets\Scripts\DrawCard.cs" />
@@ -60,7 +61,7 @@
      <Compile Include="Assets\Scripts\Players\RestartAndDeck.cs" />
      <Compile Include="Assets\Scripts\ResetAllBoard.cs" />
      <Compile Include="Assets\Scripts\Rounds\ButtonRound.cs" />
-     <Compile Include="Assets\Scripts\Rounds\Graveyard1stCheck.cs" />
+     <Compile Include="Assets\Scripts\Rounds\Deck1stCheck.cs" />
      <Compile Include="Assets\Scripts\Rounds\ImageGameOver.cs" />
      <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerDisplayer.cs" />
      <Compile Include="Assets\Scripts\Text\Player1\CurrentPlayerHealthDisplay.cs" />
@@ -80,8 +81,10 @@
      <Compile Include="Assets\Variables\Cards\ClearCard\ClearCard.cs" />
      <Compile Include="Assets\Variables\Cards\ClearCard\ClearCardMelee\ClearCardMelee.cs" />
      <Compile Include="Assets\Variables\Cards\ClearCard\ClearCardRange\ClearCardRange.cs" />
+     <Compile Include="Assets\Variables\Cards\ClearCard\ClearCardSiege\ClearCardSiege.cs" />
      <Compile Include="Assets\Variables\Cards\Decoy\DecoyCard.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\ApplyBoostEffect\ApplyBoost.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\Average\AverageEffect.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\Boost\BoostMeleeEffect.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\CleanLowestStroke\CleanLowestRow.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\DecoyEffects\DecoyEffect.cs" />
@@ -89,12 +92,19 @@
      <Compile Include="Assets\Variables\Cards\Effects\DestroyStrongestEffect\DestroyStrongest.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\Draw\DrawEffect.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\EffectApplier.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\HeroEffects\DrawWinner.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\HeroEffects\HeroDraw.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\MultiplyAttack\MultiplyAttack.cs" />
      <Compile Include="Assets\Variables\Cards\Effects\NullEffect\NullEffect.cs" />
+     <Compile Include="Assets\Variables\Cards\Effects\PlaceWeatherEffect\PlaceWeatherEffect.cs" />
+     <Compile Include="Assets\Variables\Cards\HeroCard\HeroCard.cs" />
+     <Compile Include="Assets\Variables\Cards\LegendCards\LegendCard.cs" />
      <Compile Include="Assets\Variables\Cards\ListOfCards\ListOfCards.cs" />
      <Compile Include="Assets\Variables\Cards\Testing.cs" />
      <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherCard.cs" />
+     <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherMelee\WeatherCardMelee.cs" />
      <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherRange\WeatherRangeCard.cs" />
+     <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherSiege\WeatherCardSiege.cs" />
      <Compile Include="Assets\Variables\Events\GameEvent.cs" />
      <Compile Include="Assets\Variables\Events\GameEventListener.cs" />
      <Compile Include="Assets\Variables\Fields\Field.cs" />

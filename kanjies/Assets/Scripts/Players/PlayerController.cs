@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour 
+{
+	public StringVariable DownDeck;
+	public StringVariable UpDeck;
+	public StringVariable DownHero;
+	public StringVariable UpHero;
 	public StringVariable DownOwner;
 	public StringVariable UpOwner;
 	public StringVariable DownGraveyard;
@@ -22,11 +27,42 @@ public class PlayerController : MonoBehaviour {
 	public GameEvent Placed;
 	public GameEvent GameEnded;
 	public GameEvent DrawGame;
+	public GameEvent RoundsChanged;
 	public FloatVariable CardsDiscarded;
+	public StringVariable ReturnToDeck;
 	private void Start() 
 	{
 		CardsDiscarded.Zero();
 	}
+	private void Update() {
+		ChangeTexts.Raise(this, CurrentPlayer, StandByPlayer, null);
+		CalculatePlayers();
+	}
+	public void HeroSkill(Component sender, object data1, object data2, object data3)
+	{
+		if (CurrentPlayer.HasUsedHero.Statement == false)
+		{
+		Card c = (Card)data1;
+		c.ApplyEffect(CurrentPlayer, StandByPlayer, null, null);
+		CurrentPlayer.HasUsedHero.True();
+		SwapPlayers();
+		}
+	}
+	public void HeroInit(Component sender, object data1, object data2, object data3)
+	{
+		Card c = (Card)data1;
+		StringVariable s = null;
+		Debug.Log("We are creating heros");
+		if (c.CardOwner == CurrentPlayer.PlayerName) 
+		{
+			s = DownHero;
+		}
+		else 
+		{
+			s = UpHero;
+		}
+		Create.Raise(this, c, s, null);
+	} 
 	public void CommenceRound()
 	{
 		CurrentPlayer.CleanAllFields();
@@ -57,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void RoundChange()
 	{
+		RoundsChanged.Raise(this, null, null, null);
 		if (CurrentPlayer.CollectedPower.Value > StandByPlayer.CollectedPower.Value)
 		{
 			StandByPlayer.PlayerHP.Value--;
@@ -96,16 +133,21 @@ public class PlayerController : MonoBehaviour {
 		{
 			ListOfCards PlacingIn = null;
 			if (ToPlaceFieldOwner == DownOwner) PlacingIn = CurrentPlayer.TypeGetZone(ToPlaceFieldType);
-			else PlacingIn = StandByPlayer.TypeGetZone(ToPlaceFieldType); 
+			else PlacingIn = StandByPlayer.TypeGetZone(ToPlaceFieldType);
+			if (PlacingIn != null)
+			{ 
 			if (PlacingIn.NotFull())
 			{
 			PlaceCard(this, data1, data2, data3);
 			if (StandByPlayer.PlayerPassed.Statement == false) SwapPlayers();
 			}
+			}
 		}
 	}
 	public void SwapPlayers()
 	{
+		CurrentPlayer.FakeOutHand();
+		StandByPlayer.RestoreHand();
 		CurrentPlayer.IsFirstTurn.False();
 		CardsDiscarded.Zero();
 		PlayerState temp = CurrentPlayer;
@@ -161,35 +203,39 @@ public class PlayerController : MonoBehaviour {
 		StringVariable s = null;
 		if (c.CardOwner == CurrentPlayer.PlayerName) s = DownHand;
 		else s = UpHand;
-		Debug.Log("Drawing " + c.CardName.Word);
 		Create.Raise(this, c, s, null);
 	}
-	public void Graveyard1st(Component sender, object data1, object data2, object data3)
+	public void Deck1st(Component sender, object data1, object data2, object data3)
 	{
 		Card c = (Card)data1;
-		if (ToPlaceField == DownGraveyard)
+		if (ToPlaceField == DownDeck)
 		{
 		if (CurrentPlayer.IsFirstTurn.Statement == true)
 		{
 			if (CardsDiscarded.Value < 2)
 			{
+				Debug.Log("Trying to change a card");
 				CurrentPlayer.Hand.Remove(c);
-				CurrentPlayer.Graveyard.Add(c);
 				CurrentPlayer.Draw();
+				CurrentPlayer.Deck.Add(c);
+				CurrentPlayer.Shuffle();
 				CardsDiscarded.Value += 1;
-				Destroyed(this, c, null, null);
+				RemovedCard.Raise(this, c, ReturnToDeck, null);
 			}
 		}
 		}
 	}
-	public void CreateBoost(Component sender, object data1, object data2, object data3)
+	public void CreateWeather(Component sender, object data1, object data2, object data3)
 	{
+		if (CurrentPlayer.Weather.NotFull())
+		{
 		Card c = (Card)data1;
 		if (c != null) Debug.Log(c.CardName.Word + " is not null");
 		Create.Raise(this, c, DownHand, null);
-		StringVariable s = (StringVariable)data2;
-		ToPlaceField = s;
+		ToPlaceField = CurrentPlayer.Weather.ListName;
+		ToPlaceFieldType = CurrentPlayer.Weather.ListType;
 		PlaceCard(this, c, null, null);
+		}
 	}
 	public void RemoveBoost(Component sender, object data1, object data2, object data3)
 	{

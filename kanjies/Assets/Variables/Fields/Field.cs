@@ -22,7 +22,6 @@ public class Field : MonoBehaviour {
 	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log("Colliding with " + FieldName.Word);
 		Card c = (Card)other.gameObject.GetComponent<CardDisplay>().card;
 		if (c.HasBeenPlaced.Statement == false)
 		{
@@ -56,7 +55,6 @@ public class Field : MonoBehaviour {
 		if (FieldName.Word == s.Word)
 		{
 			VisualField.Add(g);
-			Debug.Log(FieldName.Word + " has added " + g.GetComponent<CardDisplay>().card.CardName.Word);
 			g.transform.SetParent(this.gameObject.transform);
 		}
 	}

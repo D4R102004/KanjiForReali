@@ -34,6 +34,8 @@ public class DestroyStrongest : EffectApplier {
 			You.RevertEffect(Enemy, Player, Zone, ZoneType);
 			Enemy.Destroy(You, Enemy.GetCardLocation(You));
 		}
+		Player.Update();
+		Enemy.Update();
     }
 
 

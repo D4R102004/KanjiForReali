@@ -12,6 +12,7 @@ public class BoostCard : Card
         ListOfCards ImGoing = Player.TypeGetZone(ZoneType);
         ImGoing.Add(this);
         this.HasBeenPlayed();
+        Player.Update();
     }
 
 

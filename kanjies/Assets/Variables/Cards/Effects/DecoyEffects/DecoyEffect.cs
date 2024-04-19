@@ -11,9 +11,11 @@ public class DecoyEffect : EffectApplier
     {
 		ListOfCards ImAffecting = Enemy.TypeGetZone(ZoneType);
 		Card c = Enemy.FindStrongest(ImAffecting);
+		if (c != null && !(c is LegendCard))
+		{
 		c.RevertEffect(Enemy, Player, Zone, ZoneType);
 		Enemy.ReturnToTheHand(c, ImAffecting);
-		if (c != null) c.HasBeenPlayed();
+		}
 	}
 	
 } 

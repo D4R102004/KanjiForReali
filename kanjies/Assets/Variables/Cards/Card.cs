@@ -19,6 +19,8 @@ public class Card : ScriptableObject
 	public ImageReference CardBack;
 	public List<StringVariable> CardZone;
 	public FloatVariable OriginalAttack;
+	public BoolVariable IsModified;
+	public float Mod = 0;
 	public EffectApplier Effect;
 	public virtual void Place(PlayerState Player, PlayerState Enemy, StringVariable Zone, StringVariable ZoneType)
 	{
@@ -26,7 +28,11 @@ public class Card : ScriptableObject
 	}
 	public void Normalize()
 	{
-		CardAttack.Value = OriginalAttack.Value;
+		if (IsModified.Statement)
+		{
+			CardAttack.Value = Mod;
+		}
+		else CardAttack.Value = OriginalAttack.Value;
 	}
 	public void SetOwner(StringVariable player)
 	{

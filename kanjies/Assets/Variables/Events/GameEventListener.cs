@@ -10,7 +10,7 @@ public class GameEventListener : MonoBehaviour {
 	public GameEvent gameEvent;
 	public CustomGameEvent response;
 	private void OnEnable() {
-		gameEvent.Register(this);
+    	gameEvent.Register(this);
 	}
 	private void OnDisable() {
 		gameEvent.Unregister(this);

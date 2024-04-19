@@ -9,6 +9,7 @@ using System;
 [CreateAssetMenu(fileName = "PlayerState", menuName = "kanjies/PlayerState", order = 0)]
 public class PlayerState : ScriptableObject 
 {
+	public BoolVariable HasUsedHero;
 	public BoolVariable IsFirstTurn;
 	public BoolVariable PlayerPassed;
 	public FloatVariable PlayerHP;
@@ -16,6 +17,7 @@ public class PlayerState : ScriptableObject
 	public GameEvent Destroyed;
 	public GameEvent Drawn;
 	public GameEvent Bounced;
+	public GameEvent HeroEvent;
 	public ListOfCards Melee;
 	public ListOfCards Range;
 	public ListOfCards Siege;
@@ -26,6 +28,7 @@ public class PlayerState : ScriptableObject
 	public ListOfCards Deck;
 	public ListOfCards Graveyard;
 	public ListOfCards Weather;
+	public ListOfCards HeroZone;
 	public FloatVariable MeleeBoost;
 	public FloatVariable RangeBoost;
 	public FloatVariable SiegeBoost;
@@ -34,13 +37,89 @@ public class PlayerState : ScriptableObject
 	public FloatVariable WeatherSiege;
 	public FloatVariable CollectedPower;
 	public List<ListOfCards> AllFields;
+	public List<ListOfCards> AttackingFields;
+	public void RestoreHand()
+	{
+		for (int i = Hand.ListCard.Count - 1; i >= 0; i--)
+		{
+			Hand.ListCard[i].HasBeenPlaced.False();
+		}
+	}
+	public void FakeOutHand()
+	{
+		for (int i = Hand.ListCard.Count - 1; i >= 0; i--)
+		{
+			Hand.ListCard[i].HasBeenPlayed();
+		}
+	}
+	public void SetEveryOneToValue(float n)
+	{
+		for (int i = AttackingFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AttackingFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				if (!(AttackingFields[i].ListCard[j] is LegendCard))
+				{
+				AttackingFields[i].ListCard[j].IsModified.True();
+				AttackingFields[i].ListCard[j].Mod = n;
+				}
+			}
+	}
+	}
+	public float GetAverage()
+	{
+		float total = 0;
+		List<float> average = new List<float>();
+		for (int i = AttackingFields.Count - 1; i >= 0; i--)
+		{
+			for (int j = AttackingFields[i].ListCard.Count - 1; j >= 0; j--)
+			{
+				average.Add(AttackingFields[i].ListCard[j].CardAttack.Value);
+			}
+		}
+		for (int i = 0; i < average.Count; i++)
+		{
+			total += average[i];
+		}
+		return total / average.Count;
+	}
+	public void CleanRow(ListOfCards field)
+	{
+		for (int i = field.ListCard.Count - 1; i >= 0; i--)
+		{
+			Destroy(field.ListCard[i], field);
+		}
+	}
+	public ListOfCards GetFileWithLowestCount()
+	{
+		int min = 10000;
+		for (int i = AttackingFields.Count - 1; i >= 0; i--)
+		{
+			if (AttackingFields[i].ListCard.Count != 0 && AttackingFields[i].ListCard.Count < min)
+			{
+				min = AttackingFields[i].ListCard.Count;
+			}
+		}
+		for (int i = AttackingFields.Count - 1; i >= 0; i--)
+		{
+			if (AttackingFields[i].ListCard.Count == min) return AttackingFields[i];
+		}
+		return null;
+	}
+	public void Hero()
+	{
+		for (int i = 0; i < HeroZone.ListCard.Count; i++)
+		{
+			HeroEvent.Raise(null, HeroZone.ListCard[i], null, null);
+		}
+	}
 	public void CleanAllFields()
 	{
 		for (int i = AllFields.Count - 1; i >= 0; i--)
 		{
 			for (int j = AllFields[i].ListCard.Count - 1; j >= 0; j--)
 			{
-				Destroy(AllFields[i].ListCard[j], AllFields[i]);
+				TrueDestroy(AllFields[i].ListCard[j], AllFields[i]);
 			}
 		}
 		MeleeBoost.Zero();
@@ -162,6 +241,7 @@ public class PlayerState : ScriptableObject
 		Hand.Restart();
 		Deck.Restart();
 		Graveyard.Restart();
+		HeroZone.Restart();
 		MeleeBoost.Zero();
 		RangeBoost.Zero();
 		SiegeBoost.Zero();
@@ -213,11 +293,24 @@ public class PlayerState : ScriptableObject
 	}
 	public void Destroy(Card c, ListOfCards field)
 	{
+		if (field.ListCard.Contains(c) && !(c is LegendCard))
+		{
+			Graveyard.Add(c);
+			c.HasBeenPlayed();
+			field.Remove(c);
+			c.IsModified.False();
+            c.Normalize();
+			Destroyed.Raise(null, c, null, null);
+		}
+	}
+	public void TrueDestroy(Card c, ListOfCards field)
+	{
 		if (field.ListCard.Contains(c))
 		{
 			Graveyard.Add(c);
 			c.HasBeenPlayed();
 			field.Remove(c);
+			c.IsModified.False();
 			c.Normalize();
 			Destroyed.Raise(null, c, null, null);
 		}
