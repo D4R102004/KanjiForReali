@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{78C74B0E-1679-6AF1-BD1B-6E0A10ADFE1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_0;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\Binder.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundAssignmentExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryOperator.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryOperatorKind.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBlockStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundConditionalGoToStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundErrorExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundExpressionStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundForStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundGlobalScope.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundGoToStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundIfStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLabel.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLabelStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLiteralExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundNode.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundNodeKind.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundScope.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundTreeRewriter.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryOperator.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryOperatorKind.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundVariableDeclaration.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundVariableExpression.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundWhileStatement.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\C#4.0\PropertyPair.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Compilation.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Diagnostic.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\DiagnosticBag.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\EvaluationResult.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Evaluator.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Lowering\Lowerer.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\Symbol.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\SymbolKind.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\TypeSymbol.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\VariableSymbol.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\AssignmentExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\BinaryExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\BlockStatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\CompilationUnitSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ElseClauseSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ExpressionStatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ForStatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\IfStatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\Lexer.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\LiteralExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\NameExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ParenthesizedExpressionSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\Parser.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\StatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxFacts.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxKind.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxNode.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxToken.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxTree.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\UnaryExpressinSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\VariableDeclarationSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\WhileStatementSyntax.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\SourceText.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\TextLine.cs" />
+     <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\TextSpan.cs" />
+     <Compile Include="Assets\Plugins\Compiled\DarRepl.cs" />
+     <Compile Include="Assets\Plugins\Compiled\Program.cs" />
+     <Compile Include="Assets\Plugins\Compiled\Repl.cs" />
+     <Compile Include="Assets\Plugins\Compiled\codesnalysis.cs" />
+     <Compile Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.AssemblyInfo.cs" />
+     <Compile Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.GlobalUsings.g.cs" />
+     <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.csproj.FileListAbsolute.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

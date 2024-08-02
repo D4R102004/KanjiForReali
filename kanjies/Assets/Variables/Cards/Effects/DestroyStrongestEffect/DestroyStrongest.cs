@@ -15,7 +15,8 @@ public class DestroyStrongest : EffectApplier {
 		if (You.CardAttack.Value >= Me.CardAttack.Value)
 		{
 			You.RevertEffect(Enemy, Player, Zone, ZoneType);
-			Enemy.Destroy(You, Enemy.GetCardLocation(You));
+			if (ThisCard is LegendCard) Enemy.TrueDestroy(You, Enemy.GetCardLocation(You));
+			else Enemy.Destroy(You, Enemy.GetCardLocation(You));
 		}
 		else 
 		{

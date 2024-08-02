@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,7 @@ public class Field : MonoBehaviour {
 	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
+		Debug.Log(FieldName.Word);
 		Card c = (Card)other.gameObject.GetComponent<CardDisplay>().card;
 		if (c.HasBeenPlaced.Statement == false)
 		{

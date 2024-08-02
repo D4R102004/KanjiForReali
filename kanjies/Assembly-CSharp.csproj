@@ -46,6 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Compiler\BehindScenes\Compiling.cs" />
+     <Compile Include="Assets\Compiler\Compiler.cs" />
+     <Compile Include="Assets\Compiler\DAR\DAR.cs" />
+     <Compile Include="Assets\Compiler\sc.cs" />
      <Compile Include="Assets\Scripts\Cards\CardDisplay.cs" />
      <Compile Include="Assets\Scripts\Cards\CardZoom.cs" />
      <Compile Include="Assets\Scripts\Cards\HeroAbilityButton.cs" />
@@ -115,6 +119,7 @@
      <Compile Include="Assets\Variables\Players\PlayerState.cs" />
      <Compile Include="Assets\Variables\String\StringReference.cs" />
      <Compile Include="Assets\Variables\String\StringVariable.cs" />
+     <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.csproj.FileListAbsolute.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,0 +1,24 @@
+namespace Dar.CodeAnalysis.Binding
+{
+    internal sealed class BoundConditionalGoToStatement : BoundStatement
+    {
+        public BoundConditionalGoToStatement(BoundLabel label, BoundExpression condition, bool jumpIfTrue = true)
+        {
+            Label = label;
+            Condition = condition;
+            JumpIfTrue = jumpIfTrue;
+        }
+
+        public override BoundNodeKind Kind 
+        {
+            get
+            {
+                return BoundNodeKind.ConditionalGoToStatement;
+            }
+        }
+
+        public BoundLabel Label { get; }
+        public BoundExpression Condition { get; }
+        public bool JumpIfTrue { get; }
+    }
+}

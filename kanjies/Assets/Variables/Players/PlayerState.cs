@@ -225,8 +225,11 @@ public class PlayerState : ScriptableObject
 	{
 		for (int i = Field.ListCard.Count - 1; i >= 0; i--)
 		{
+			if (Field.ListCard[i] is AttackingCard)
+			{
 			Field.ListCard[i].CardAttack.Value += n;
 			if (Field.ListCard[i].CardAttack.Value < 0) Field.ListCard[i].CardAttack.Zero();
+			}
 		}
 	}
 	public void Restart()

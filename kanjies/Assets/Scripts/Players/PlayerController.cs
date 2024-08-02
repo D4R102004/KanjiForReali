@@ -128,15 +128,19 @@ public class PlayerController : MonoBehaviour
 	}
 	public void AttemptingPlacement(Component sender, object data1, object data2, object data3)
 	{
-		Debug.Log("Trying to place a card");
 		if (ToPlaceField != null && ToPlaceField != DownGraveyard)
 		{
 			ListOfCards PlacingIn = null;
 			if (ToPlaceFieldOwner == DownOwner) PlacingIn = CurrentPlayer.TypeGetZone(ToPlaceFieldType);
 			else PlacingIn = StandByPlayer.TypeGetZone(ToPlaceFieldType);
 			if (PlacingIn != null)
-			{ 
-			if (PlacingIn.NotFull())
+			{
+			if (data1 is ClearCard)
+			{
+				PlaceCard(this, data1, data2, data3);
+				if (StandByPlayer.PlayerPassed.Statement == false) SwapPlayers();
+			}
+			else if (PlacingIn.NotFull())
 			{
 			PlaceCard(this, data1, data2, data3);
 			if (StandByPlayer.PlayerPassed.Statement == false) SwapPlayers();

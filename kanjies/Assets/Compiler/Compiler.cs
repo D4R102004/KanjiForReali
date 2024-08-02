@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework.Internal;
+using UnityEngine;
+
+public class Compiler : MonoBehaviour {
+	public void Compile(string text)
+	{
+		
+	}
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}
