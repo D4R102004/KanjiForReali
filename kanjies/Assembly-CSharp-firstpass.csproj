@@ -1,8 +1,13 @@
-<Project ToolsVersion="Current">
+﻿<Project ToolsVersion="Current">
+  <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
     <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
   </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <ItemGroup>
+    <ProjectCapability Include="Unity" />
+  </ItemGroup>
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <EnableDefaultItems>false</EnableDefaultItems>
@@ -11,7 +16,7 @@
     <Configurations>Debug;Release</Configurations>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <RootNamespace/>
+    <RootNamespace></RootNamespace>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -53,82 +58,159 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2022.3.40f1</UnityVersion>
   </PropertyGroup>
-  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk"/>
-  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk"/>
   <ItemGroup>
-    <ProjectCapability Include="Unity"/>
+    <Analyzer Include="C:\Users\adria\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.0.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\adria\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.0.2\Analyzers\Microsoft.Unity.Analyzers.dll"/>
-    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll"/>
-    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll"/>
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryOperatorKind.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Text\TextSpan.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ElseClauseSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\StatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\SourceText.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ExpressionStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.GlobalUsings.g.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBlockStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundNodeKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\Parser.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundErrorExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxNode.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundGlobalScope.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\IfStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxToken.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBlockStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryOperator.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\SymbolKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\TextLine.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\codesnalysis.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\C#4.0\PropertyPair.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundConditionalGoToStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundNode.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\Symbol.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxToken.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundGlobalScope.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\IfStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\EvaluationResult.cs" />
+    <Compile Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.AssemblyInfo.cs" />
+    <Compile Include="Assets\Plugins\Compiled\codesnalysis.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\Lexer.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundVariableDeclaration.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Lowering\Lowerer.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\VariableDeclarationSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundTreeRewriter.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Diagnostic.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundNode.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\BlockStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxFacts.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxFacts.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryOperator.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundExpressionStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Evaluator.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\WhileStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ForStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundIfStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundVariableExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ExpressionStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundScope.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundErrorExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLiteralExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundScope.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\UnaryExpressinSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\VariableSymbol.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\NameExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Compilation.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Lowering\Lowerer.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\Binder.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\BinaryExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLabelStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\TypeSymbol.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ParenthesizedExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundConditionalGoToStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundNodeKind.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\VariableDeclarationSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\EvaluationResult.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Compilation.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundForStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundAssignmentExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundWhileStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxTree.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\WhileStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\LiteralExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundAssignmentExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\Repl.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\BinaryExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundWhileStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundVariableDeclaration.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\AssignmentExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLiteralExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ElseClauseSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Text\SourceText.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundForStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundUnaryExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxKind.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryOperator.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\StatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\DiagnosticBag.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Text\TextSpan.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxTree.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\NameExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundIfStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\Binder.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundExpression.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\TypeSymbol.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\BlockStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\Parser.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\Lexer.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundTreeRewriter.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundGoToStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\codesnalysis.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLabel.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\DiagnosticBag.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\SymbolKind.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryOperatorKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundGoToStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\DarRepl.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundVariableExpression.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ForStatementSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\VariableSymbol.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundExpressionStatement.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Text\TextLine.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLabelStatement.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\CompilationUnitSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\CompilationUnitSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryOperatorKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundLabel.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Diagnostic.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\LiteralExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\UnaryExpressinSyntax.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\ParenthesizedExpressionSyntax.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Evaluator.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Binding\BoundBinaryOperatorKind.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Symbols\Symbol.cs" />
+    <Compile Include="Assets\Plugins\Compiled\CodeAnalysis\Syntax\SyntaxNode.cs" />
+    <Compile Include="Assets\Plugins\Compiled\Program.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryOperator.cs" />
+    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\AssignmentExpressionSyntax.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Text\TextSpan.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ElseClauseSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ExpressionStatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBlockStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundErrorExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxNode.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\IfStatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\SymbolKind.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\codesnalysis.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundConditionalGoToStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundNode.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\Symbol.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxToken.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundGlobalScope.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Lowering\Lowerer.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundTreeRewriter.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Diagnostic.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\BlockStatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxFacts.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ForStatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundScope.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLiteralExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\VariableSymbol.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\NameExpressionSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ParenthesizedExpressionSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundNodeKind.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\VariableDeclarationSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\EvaluationResult.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Compilation.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundForStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundWhileStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxTree.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\WhileStatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\LiteralExpressionSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundAssignmentExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\BinaryExpressionSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundVariableDeclaration.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Text\SourceText.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\SyntaxKind.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryOperator.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\StatementSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\DiagnosticBag.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundIfStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\Binder.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Symbols\TypeSymbol.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\ExpressionSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\Parser.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\Lexer.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundGoToStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLabel.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundUnaryOperatorKind.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundVariableExpression.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundExpressionStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Text\TextLine.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundLabelStatement.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\CompilationUnitSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryOperatorKind.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\UnaryExpressinSyntax.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Evaluator.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Binding\BoundBinaryOperator.cs"/>
-    <Compile Include="Assets\Plugins\CodeAnalysis\Syntax\AssignmentExpressionSyntax.cs"/>
+    <None Include="Assets\Plugins\System.Collections.Immutable.dll" />
+    <None Include="Assets\Plugins\Unsafe\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="Assets\Plugins\Compiled\bin\Debug\net8.0\Compiled.dll" />
+    <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.dll" />
+    <None Include="Assets\Plugins\Compiled.dll" />
+    <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\refint\Compiled.dll" />
+    <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\ref\Compiled.dll" />
+    <None Include="Assets\Plugins\Compiled\obj\Debug\net8.0\Compiled.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -463,12 +545,24 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\Plugins\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Compiled">
+      <HintPath>Assets\Plugins\Compiled\bin\Debug\net8.0\Compiled.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1320,17 +1414,18 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>&#xD;
-  </ItemGroup>
   <ItemGroup>
-    <ProjectCapability Remove="LaunchProfiles"/>
-    <ProjectCapability Remove="SharedProjectReferences"/>
-    <ProjectCapability Remove="ReferenceManagerSharedProjects"/>
-    <ProjectCapability Remove="ProjectReferences"/>
-    <ProjectCapability Remove="ReferenceManagerProjects"/>
-    <ProjectCapability Remove="COMReferences"/>
-    <ProjectCapability Remove="ReferenceManagerCOM"/>
-    <ProjectCapability Remove="AssemblyReferences"/>
-    <ProjectCapability Remove="ReferenceManagerAssemblies"/>
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  <ItemGroup>
+    <ProjectCapability Remove="LaunchProfiles" />
+    <ProjectCapability Remove="SharedProjectReferences" />
+    <ProjectCapability Remove="ReferenceManagerSharedProjects" />
+    <ProjectCapability Remove="ProjectReferences" />
+    <ProjectCapability Remove="ReferenceManagerProjects" />
+    <ProjectCapability Remove="COMReferences" />
+    <ProjectCapability Remove="ReferenceManagerCOM" />
+    <ProjectCapability Remove="AssemblyReferences" />
+    <ProjectCapability Remove="ReferenceManagerAssemblies" />
   </ItemGroup>
 </Project>

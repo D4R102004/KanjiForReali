@@ -69,7 +69,7 @@ namespace Dar.CodeAnalysis.Syntax
         BinaryExpression, 
         ParenthesizedExpression,
         AssignmentExpression,
-        
+        PostfixUnaryExpression,
 
     }
 }

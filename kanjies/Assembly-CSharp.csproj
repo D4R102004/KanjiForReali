@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Text\SingleTextDisplayer.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundExpression.cs" />
     <Compile Include="Assets\Variables\Cards\LegendCards\LegendCard.cs" />
+    <Compile Include="Assets\Compiler\Compiler.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundLiteralExpression.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundBinaryExpression.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundForStatement.cs" />
@@ -142,8 +143,8 @@
     <Compile Include="Assets\Variables\Images\ImageReference.cs" />
     <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherMelee\WeatherCardMelee.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Syntax\StatementSyntax.cs" />
-    <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherSiege\WeatherCardSiege.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundVariableDeclaration.cs" />
+    <Compile Include="Assets\Variables\Cards\WeatherCard\WeatherSiege\WeatherCardSiege.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundLabelStatement.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\Binding\BoundScope.cs" />
     <Compile Include="Assets\Compiler\Dar\CodeAnalysis\DiagnosticBag.cs" />
@@ -550,6 +551,10 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Assets\Plugins\Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Compiled">
+      <HintPath>Assets\Plugins\Compiled\bin\Debug\net8.0\Compiled.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1402,6 +1407,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

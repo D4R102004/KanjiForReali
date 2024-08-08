@@ -6,6 +6,7 @@ using System;
 
 public class BoolReference 
 {
+	
 	public bool Determine;
 	public bool MyBool;
 	public BoolVariable Variable;

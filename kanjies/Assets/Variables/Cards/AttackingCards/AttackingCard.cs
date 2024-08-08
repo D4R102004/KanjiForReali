@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
+
 using UnityEngine;
 [CreateAssetMenu(fileName = "AttackingCard", menuName = "kanjies/AttackCard", order = 0)]
 public class AttackingCard : Card 

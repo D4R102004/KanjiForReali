@@ -237,6 +237,12 @@ namespace Dar.CodeAnalysis.Syntax
                 case SyntaxKind.IdentifierToken:
                 default:
                     {
+                        if (Peek(1).Kind == SyntaxKind.PlusPlusToken)
+                        {
+                            var identifierToken = MatchToken(SyntaxKind.IdentifierToken);
+                            var plusplusToken = NextToken();
+                            return new PostfixUnaryExpressionSyntax(identifierToken, plusplusToken);
+                        }
                         return ParseNameExpression();
                     }
             }

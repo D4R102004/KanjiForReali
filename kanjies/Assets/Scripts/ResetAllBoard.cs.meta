@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: d522cb8322ab6a44d86490293965877f
-timeCreated: 1711241882
-licenseType: Free
+guid: 98f3739bf487e2b43a43f0ca58865a86
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - logic: {instanceID: 0}
-  - field: {instanceID: 0}
-  - PlayerHand: {instanceID: 0}
-  - m: {instanceID: 0}
-  - r: {instanceID: 0}
-  - s: {instanceID: 0}
-  - b1: {instanceID: 0}
-  - w: {instanceID: 0}
-  - wetmod: {fileID: 11400000, guid: 1087ea7685ef16a489556d2e4d876c45, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
