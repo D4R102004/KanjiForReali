@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Dar.CodeAnalysis.Symbols;
+
+namespace Dar.CodeAnalysis.Binding
+{
+    internal sealed class BoundAssignmentExpression : BoundExpression
+    {
+        public BoundAssignmentExpression(VariableSymbol variable, BoundExpression expression)
+        {
+            Variable = variable;
+            Expression = expression;
+        }
+        public override BoundNodeKind Kind => BoundNodeKind.AssignmentExpression;
+        public override TypeSymbol Type => Expression.Type;
+        public VariableSymbol Variable { get; }
+        public BoundExpression Expression { get; }
+    }
+}

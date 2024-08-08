@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Compiling : MonoBehaviour {
 	public InputField userInput;
-	public Compiler compiler;
+	public DAR dar;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class Compiling : MonoBehaviour {
 	}
 	public void Submit(string text)
 	{
-		compiler.Compile(text);
+		dar.Compile(text);
 		Debug.Log("Wrote: " + text);
 	}
     

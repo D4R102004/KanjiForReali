@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Dar.CodeAnalysis.Binding
+{
+    internal sealed class BoundGoToStatement : BoundStatement
+    {
+        public BoundGoToStatement(BoundLabel label)
+        {
+            Label = label;
+        }
+
+        public override BoundNodeKind Kind => BoundNodeKind.GoToStatement;
+
+        public BoundLabel Label { get; }
+    }
+}
